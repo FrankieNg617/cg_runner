@@ -22,6 +22,10 @@ public class CharacterControl : MonoBehaviour
 
     void Update()
     {
+        if(!GameManage.isGameStarted)  //unable to control the character if the game is not started yet
+           return;
+
+
         if(forwardSpeed < maxSpeed)
            forwardSpeed += 0.1f * Time.fixedDeltaTime;  //increase the character's speed by 0.1 each sec
            
@@ -73,6 +77,9 @@ public class CharacterControl : MonoBehaviour
 
     private void FixedUpdate()
     {
+        if(!GameManage.isGameStarted) 
+           return;
+
         controller.Move(direction * Time.deltaTime);
     }
 
