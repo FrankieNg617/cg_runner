@@ -25,6 +25,7 @@ public class CharacterControl : MonoBehaviour
         if(forwardSpeed < maxSpeed)
            forwardSpeed += 0.1f * Time.fixedDeltaTime;  //increase the character's speed by 0.1 each sec
            
+           
         direction.z = forwardSpeed;
         
 
@@ -47,7 +48,7 @@ public class CharacterControl : MonoBehaviour
             direction.y = -1;
             if(Input.GetKeyDown(KeyCode.Space))
             {
-               Jump();
+               direction.y = jumpForce;;
             }
         }
         else //only add the gravity to the character when it is jumping
@@ -73,12 +74,6 @@ public class CharacterControl : MonoBehaviour
     private void FixedUpdate()
     {
         controller.Move(direction * Time.deltaTime);
-    }
-
-    private void Jump()
-    {
-        direction.y = jumpForce;
-
     }
 
     

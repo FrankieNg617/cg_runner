@@ -13,7 +13,7 @@ public class CamControl : MonoBehaviour
     }
 
     
-    void LateUpdate()
+    void FixedUpdate()
     {
         //claculate the new position of cam per frame
         //only need to consider the z coordinate of cam; x and y would not change
