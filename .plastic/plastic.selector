@@ -1,0 +1,3 @@
+rep "cg_runner@felixwongyuenlam@cloud"
+  path "/"
+    smartbranch "/main"
