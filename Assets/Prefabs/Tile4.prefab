@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 3774256051430909156}
   m_Layer: 3
   m_Name: Barrier2
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -91,7 +91,7 @@ BoxCollider:
   m_GameObject: {fileID: 111879157145942240}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1.0000001, y: 1, z: 1}
   m_Center: {x: 0.50000006, y: 0.5, z: 0.5}
@@ -238,7 +238,7 @@ GameObject:
   - component: {fileID: 7062669899505938235}
   m_Layer: 3
   m_Name: Barrier
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -315,7 +315,7 @@ BoxCollider:
   m_GameObject: {fileID: 4647988331673384266}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1.0000001, y: 1, z: 1}
   m_Center: {x: 0.50000006, y: 0.5, z: 0.5}

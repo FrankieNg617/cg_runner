@@ -83,6 +83,15 @@ public class CharacterControl : MonoBehaviour
         controller.Move(direction * Time.deltaTime);
     }
 
-    
+    private void OnControllerColliderHit(ControllerColliderHit hit)
+    {
+        if(hit.transform.tag == "Obstacle")
+        {
+            GameManage.isGameOver = true;
+        }
+
+    }
+
+
 
 }

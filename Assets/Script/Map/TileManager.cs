@@ -39,7 +39,10 @@ public class TileManager : MonoBehaviour
     {
         for(int i = 0; i < numberOfTiles; i++)
         {
-            SpawnTile(Random.Range(0, tilePool.Count));
+            if(i == 0)
+               SpawnTile(0);
+            else
+               SpawnTile(Random.Range(1, tilePool.Count));
         }
     }
 
@@ -48,7 +51,7 @@ public class TileManager : MonoBehaviour
     {
         if(character.position.z - 35 > spawnPos - (numberOfTiles * tileLength))
         {
-            SpawnTile(Random.Range(0, tilePool.Count));
+            SpawnTile(Random.Range(1, tilePool.Count));
             DeleteTile();    // delete the odd tile whenever a new tile has been created
         }
     }

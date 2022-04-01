@@ -5,11 +5,15 @@ using UnityEngine;
 public class GameManage : MonoBehaviour
 {
     public static bool isGameStarted;
+    public static bool isGameOver;
     public GameObject startingText;
+    public GameObject gameOverPanel;
+
 
     void Start()
     {
         isGameStarted = false;
+        isGameOver = false;
     }
 
     
@@ -20,5 +24,11 @@ public class GameManage : MonoBehaviour
             isGameStarted = true;
             Destroy(startingText);
         }
+
+        if(isGameOver)
+        {
+            gameOverPanel.SetActive(true);
+        }
+
     }
 }
