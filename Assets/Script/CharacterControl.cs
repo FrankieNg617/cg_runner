@@ -22,7 +22,7 @@ public class CharacterControl : MonoBehaviour
 
     void Update()
     {
-        if(!GameManage.isGameStarted)  //unable to control the character if the game is not started yet
+        if(!GameManage.isGameStarted || GameManage.isGameOver)  //unable to control the character if the game is not started yet
            return;
 
 
@@ -77,7 +77,7 @@ public class CharacterControl : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if(!GameManage.isGameStarted) 
+        if(!GameManage.isGameStarted || GameManage.isGameOver) 
            return;
 
         controller.Move(direction * Time.deltaTime);
