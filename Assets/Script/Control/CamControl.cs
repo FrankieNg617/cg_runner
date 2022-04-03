@@ -12,12 +12,12 @@ public class CamControl : MonoBehaviour
         offset = transform.position - target.position;
     }
 
-    
-    void FixedUpdate()
+
+    void LateUpdate()
     {
         //claculate the new position of cam per frame
         //only need to consider the z coordinate of cam; x and y would not change
-        Vector3 newPosition = new Vector3(transform.position.x, transform.position.y, offset.z+target.position.z);
+        Vector3 newPosition = new Vector3(transform.position.x, transform.position.y, offset.z + target.position.z);
         transform.position = Vector3.Lerp(transform.position, newPosition, 10 * Time.deltaTime);
     }
 }

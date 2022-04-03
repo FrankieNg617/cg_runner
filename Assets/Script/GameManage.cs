@@ -16,16 +16,16 @@ public class GameManage : MonoBehaviour
         isGameOver = false;
     }
 
-    
+
     void Update()
     {
-        if(Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0))
         {
             isGameStarted = true;
             Destroy(startingText);
         }
 
-        if(isGameOver)
+        if (isGameOver)
         {
             gameOverPanel.SetActive(true);
         }
