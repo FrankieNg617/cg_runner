@@ -853,11 +853,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tilePrefabs:
   - {fileID: 3791542760128563620, guid: 24e2aca69e22b1a41aab38cde575e74f, type: 3}
-  - {fileID: 4976659650657170451, guid: cb22d1ebd2cb34649931aa5d69b12aef, type: 3}
-  - {fileID: 4654132385037238300, guid: 71cd016b4b226804899941e71ab5fd97, type: 3}
-  - {fileID: 832500208890422904, guid: 404eab964b97a3149936ef6ebeb8bc95, type: 3}
-  - {fileID: 6034229965552927075, guid: 137b1de7de06c20438726743114b147a, type: 3}
-  - {fileID: 2063489352670222470, guid: 7dd3615fb5c73b3498f155bd1067008b, type: 3}
+  - {fileID: 3791542760128563620, guid: 24e2aca69e22b1a41aab38cde575e74f, type: 3}
+  - {fileID: 3791542760128563620, guid: 24e2aca69e22b1a41aab38cde575e74f, type: 3}
+  - {fileID: 3791542760128563620, guid: 24e2aca69e22b1a41aab38cde575e74f, type: 3}
   spawnPos: 0
   tileLength: 30
   numberOfTiles: 6
@@ -1526,6 +1524,18 @@ PrefabInstance:
     - target: {fileID: 8921471099186548630, guid: 0fb43873db58a45488f424fac46ee070, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8921471099186548650, guid: 0fb43873db58a45488f424fac46ee070, type: 3}
+      propertyPath: maxSpeed
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 8921471099186548650, guid: 0fb43873db58a45488f424fac46ee070, type: 3}
+      propertyPath: acceleration
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 8921471099186548650, guid: 0fb43873db58a45488f424fac46ee070, type: 3}
+      propertyPath: horizontalSpeed
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0fb43873db58a45488f424fac46ee070, type: 3}
