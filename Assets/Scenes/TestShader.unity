@@ -1521,8 +1521,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 10430792fda01344fa5b29c913f946eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  anim: {fileID: 0}
   forwardSpeed: 10
-  maxSpeed: 15
+  horizontalSpeed: 0
+  acceleration: 100
   laneDistance: 5
   jumpForce: 10
   gravity: -20
@@ -1560,6 +1562,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 89a79e5bb185f684aa828e68ac7d1968, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isGameStarted: 0
+  isGameOver: 0
   startingText: {fileID: 2095415706}
   gameOverPanel: {fileID: 937392000}
 --- !u!4 &1508034828

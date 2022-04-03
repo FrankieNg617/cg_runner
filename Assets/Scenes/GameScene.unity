@@ -853,11 +853,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tilePrefabs:
   - {fileID: 3791542760128563620, guid: 24e2aca69e22b1a41aab38cde575e74f, type: 3}
-  - {fileID: 4976659650657170451, guid: cb22d1ebd2cb34649931aa5d69b12aef, type: 3}
-  - {fileID: 4654132385037238300, guid: 71cd016b4b226804899941e71ab5fd97, type: 3}
-  - {fileID: 832500208890422904, guid: 404eab964b97a3149936ef6ebeb8bc95, type: 3}
-  - {fileID: 6034229965552927075, guid: 137b1de7de06c20438726743114b147a, type: 3}
-  - {fileID: 2063489352670222470, guid: 7dd3615fb5c73b3498f155bd1067008b, type: 3}
+  - {fileID: 3791542760128563620, guid: 24e2aca69e22b1a41aab38cde575e74f, type: 3}
+  - {fileID: 3791542760128563620, guid: 24e2aca69e22b1a41aab38cde575e74f, type: 3}
+  - {fileID: 3791542760128563620, guid: 24e2aca69e22b1a41aab38cde575e74f, type: 3}
+  - {fileID: 3791542760128563620, guid: 24e2aca69e22b1a41aab38cde575e74f, type: 3}
+  - {fileID: 3791542760128563620, guid: 24e2aca69e22b1a41aab38cde575e74f, type: 3}
   spawnPos: 0
   tileLength: 30
   numberOfTiles: 6
@@ -1244,45 +1244,11 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1108922843 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8921471099186548625, guid: 0fb43873db58a45488f424fac46ee070, type: 3}
-  m_PrefabInstance: {fileID: 8921471098146872906}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1108922844 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8921471099186548630, guid: 0fb43873db58a45488f424fac46ee070, type: 3}
   m_PrefabInstance: {fileID: 8921471098146872906}
   m_PrefabAsset: {fileID: 0}
---- !u!65 &1108922845
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1108922843}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.3, y: 0.1, z: 0.2}
-  m_Center: {x: 0, y: 0, z: 0.03}
---- !u!54 &1108922847
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1108922843}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 1
-  m_IsKinematic: 1
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!1 &1508034826
 GameObject:
   m_ObjectHideFlags: 0
@@ -1556,8 +1522,12 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8921471099186548650, guid: 0fb43873db58a45488f424fac46ee070, type: 3}
+      propertyPath: gravity
+      value: -30
+      objectReference: {fileID: 0}
+    - target: {fileID: 8921471099186548650, guid: 0fb43873db58a45488f424fac46ee070, type: 3}
       propertyPath: jumpForce
-      value: 13
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 8921471099186548650, guid: 0fb43873db58a45488f424fac46ee070, type: 3}
       propertyPath: horizontalSpeed
