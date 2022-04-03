@@ -108,7 +108,7 @@ Transform:
   m_GameObject: {fileID: 8921471099186548625}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 1.02, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children:
   - {fileID: 8921471097940155189}
   - {fileID: 8917631199544386213}
@@ -127,8 +127,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 10430792fda01344fa5b29c913f946eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  anim: {fileID: 8835384764426683397}
   forwardSpeed: 10
-  maxSpeed: 15
+  horizontalSpeed: 10
+  acceleration: 30
   laneDistance: 5
   jumpForce: 10
   gravity: -20
@@ -143,13 +145,13 @@ CharacterController:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Height: 3.79
-  m_Radius: 1.06
+  m_Height: 1.8
+  m_Radius: 0.3
   m_SlopeLimit: 45
   m_StepOffset: 0.3
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
-  m_Center: {x: -0.03, y: 0.88, z: -1.98}
+  m_Center: {x: 0, y: 0.96, z: 0}
 --- !u!1001 &8921471097634224221
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -205,10 +207,19 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 95412404844493912, guid: 1617cfd7d856042459cec623d111378d, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 48db96533558b154789a70cddc4ca692, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1617cfd7d856042459cec623d111378d, type: 3}
 --- !u!4 &8917631199544386213 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4121957669690104, guid: 1617cfd7d856042459cec623d111378d, type: 3}
+  m_PrefabInstance: {fileID: 8921471097634224221}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &8835384764426683397 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 95412404844493912, guid: 1617cfd7d856042459cec623d111378d, type: 3}
   m_PrefabInstance: {fileID: 8921471097634224221}
   m_PrefabAsset: {fileID: 0}

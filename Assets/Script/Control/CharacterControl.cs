@@ -9,6 +9,8 @@ public class CharacterControl : MonoBehaviour
     //  REF
     private CharacterController controller;
     private PlayerInputAction.GameplayActions gameplay;
+    private GameManage gameManager;
+    [SerializeField] Animator anim;
 
     //  CONFIG PARAMS
     [SerializeField] float forwardSpeed;
@@ -20,20 +22,24 @@ public class CharacterControl : MonoBehaviour
     [SerializeField] float gravity = -20;
 
     //  STATE
+    private bool enableMovement = false;
     private Vector3 direction;
     private bool jumpAction = false;
     private int desiredLane = 0; //-1:left 0:middle 1:right
 
-    private float targetX;
 
     void Awake()
     {
         controller = GetComponent<CharacterController>();
+        gameManager = GameObject.FindWithTag("GameManage")?.GetComponent<GameManage>();
+        gameManager.onGameStart += enableControl;
+        gameManager.onGameOver += () => enableMovement = false;
 
         // Setup Input and Listener
         gameplay = new PlayerInputAction().Gameplay;
         gameplay.move.performed += SwitchLane;
         gameplay.jump.performed += ctx => jumpAction = true;
+        gameplay.roll.performed += Roll;
     }
 
 
@@ -49,7 +55,7 @@ public class CharacterControl : MonoBehaviour
 
     void Update()
     {
-        if (!GameManage.isGameStarted || GameManage.isGameOver)  //unable to control the character if the game is not started yet
+        if (!enableMovement)  //unable to control the character if the game is not started yet
             return;
 
 
@@ -59,9 +65,6 @@ public class CharacterControl : MonoBehaviour
         HandleJump();
 
         HandleLaneMovement();
-
-        if (!GameManage.isGameStarted || GameManage.isGameOver)
-            return;
 
         controller.Move(direction * Time.deltaTime);
     }
@@ -73,7 +76,20 @@ public class CharacterControl : MonoBehaviour
         if (desiredLane != 0)
             targetPos += desiredLane * Vector3.right * laneDistance;
 
-        direction.x = !Mathf.Approximately(transform.position.x, targetPos.x) ? (targetPos - transform.position).x * horizontalSpeed : 0;
+        if (Mathf.Abs(transform.position.x - targetPos.x) > 0.1f)
+        {
+            Vector3 dir = (targetPos - transform.position);
+            direction.x = dir.x * horizontalSpeed;
+        }
+        else
+        {
+            direction.x = 0;
+        }
+
+        if (Mathf.Abs(transform.position.x - targetPos.x) > 0.5)
+            anim.SetFloat("xDirection", Mathf.Sign(direction.x) / 2);
+        else
+            anim.SetFloat("xDirection", 0f);
     }
 
     private void HandleJump()
@@ -81,12 +97,14 @@ public class CharacterControl : MonoBehaviour
         if (controller.isGrounded && jumpAction) //only able to jump when character is on the ground -> avoid double jump
         {
             direction.y = jumpForce;
+            anim.SetTrigger("Jump");
             jumpAction = false;
         }
         else //only add the gravity to the character when it is jumping
         {
             direction.y += gravity * Time.deltaTime;
         }
+        anim.SetBool("Run", controller.isGrounded);
     }
 
     private void SwitchLane(InputAction.CallbackContext ctx)
@@ -96,14 +114,24 @@ public class CharacterControl : MonoBehaviour
 
         desiredLane = Mathf.Clamp(desiredLane, -1, 1);
     }
+    private void Roll(InputAction.CallbackContext obj)
+    {
+        anim.SetTrigger("Roll");
+    }
+
+    // Callback
+    private void enableControl()
+    {
+        enableMovement = true;
+        anim.SetBool("Run", true);
+    }
 
     // Collision
     private void OnControllerColliderHit(ControllerColliderHit hit)
     {
         if (hit.transform.tag == "Obstacle")
         {
-            GameManage.isGameOver = true;
+            gameManager.isGameOver = true;
         }
-
     }
 }

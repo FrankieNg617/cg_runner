@@ -1,14 +1,17 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class GameManage : MonoBehaviour
 {
-    public static bool isGameStarted;
-    public static bool isGameOver;
+    public bool isGameStarted;
+    public bool isGameOver;
     public GameObject startingText;
     public GameObject gameOverPanel;
 
+    public event Action onGameStart;
+    public event Action onGameOver;
 
     void Start()
     {
@@ -22,13 +25,15 @@ public class GameManage : MonoBehaviour
         if (Input.GetMouseButtonDown(0))
         {
             isGameStarted = true;
+            print(isGameStarted);
+            if (onGameStart != null) onGameStart();
             Destroy(startingText);
         }
 
         if (isGameOver)
         {
+            if (onGameOver != null) onGameOver();
             gameOverPanel.SetActive(true);
         }
-
     }
 }

@@ -44,6 +44,15 @@ public partial class @PlayerInputAction : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""roll"",
+                    ""type"": ""Value"",
+                    ""id"": ""7a2f5550-92af-4f5c-8738-a61da7e83ad4"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
                 }
             ],
             ""bindings"": [
@@ -90,6 +99,17 @@ public partial class @PlayerInputAction : IInputActionCollection2, IDisposable
                     ""action"": ""jump"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""2efe4af0-b1f3-4de9-94a4-4f14231df70b"",
+                    ""path"": ""<Keyboard>/s"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""roll"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -100,6 +120,7 @@ public partial class @PlayerInputAction : IInputActionCollection2, IDisposable
         m_Gameplay = asset.FindActionMap("Gameplay", throwIfNotFound: true);
         m_Gameplay_move = m_Gameplay.FindAction("move", throwIfNotFound: true);
         m_Gameplay_jump = m_Gameplay.FindAction("jump", throwIfNotFound: true);
+        m_Gameplay_roll = m_Gameplay.FindAction("roll", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -161,12 +182,14 @@ public partial class @PlayerInputAction : IInputActionCollection2, IDisposable
     private IGameplayActions m_GameplayActionsCallbackInterface;
     private readonly InputAction m_Gameplay_move;
     private readonly InputAction m_Gameplay_jump;
+    private readonly InputAction m_Gameplay_roll;
     public struct GameplayActions
     {
         private @PlayerInputAction m_Wrapper;
         public GameplayActions(@PlayerInputAction wrapper) { m_Wrapper = wrapper; }
         public InputAction @move => m_Wrapper.m_Gameplay_move;
         public InputAction @jump => m_Wrapper.m_Gameplay_jump;
+        public InputAction @roll => m_Wrapper.m_Gameplay_roll;
         public InputActionMap Get() { return m_Wrapper.m_Gameplay; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -182,6 +205,9 @@ public partial class @PlayerInputAction : IInputActionCollection2, IDisposable
                 @jump.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnJump;
                 @jump.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnJump;
                 @jump.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnJump;
+                @roll.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnRoll;
+                @roll.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnRoll;
+                @roll.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnRoll;
             }
             m_Wrapper.m_GameplayActionsCallbackInterface = instance;
             if (instance != null)
@@ -192,6 +218,9 @@ public partial class @PlayerInputAction : IInputActionCollection2, IDisposable
                 @jump.started += instance.OnJump;
                 @jump.performed += instance.OnJump;
                 @jump.canceled += instance.OnJump;
+                @roll.started += instance.OnRoll;
+                @roll.performed += instance.OnRoll;
+                @roll.canceled += instance.OnRoll;
             }
         }
     }
@@ -200,5 +229,6 @@ public partial class @PlayerInputAction : IInputActionCollection2, IDisposable
     {
         void OnMove(InputAction.CallbackContext context);
         void OnJump(InputAction.CallbackContext context);
+        void OnRoll(InputAction.CallbackContext context);
     }
 }
