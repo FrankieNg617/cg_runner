@@ -26,7 +26,7 @@ RenderSettings:
   m_AmbientIntensity: 1
   m_AmbientMode: 0
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
-  m_SkyboxMaterial: {fileID: 10304, guid: 0000000000000000f000000000000000, type: 0}
+  m_SkyboxMaterial: {fileID: 2100000, guid: 2bd8959f5fbd3644aa33af1a155fc147, type: 2}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.11261032, g: 0.281506, b: 0.7091939, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -853,11 +853,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tilePrefabs:
   - {fileID: 3791542760128563620, guid: 24e2aca69e22b1a41aab38cde575e74f, type: 3}
-  - {fileID: 3791542760128563620, guid: 24e2aca69e22b1a41aab38cde575e74f, type: 3}
-  - {fileID: 3791542760128563620, guid: 24e2aca69e22b1a41aab38cde575e74f, type: 3}
-  - {fileID: 3791542760128563620, guid: 24e2aca69e22b1a41aab38cde575e74f, type: 3}
-  - {fileID: 3791542760128563620, guid: 24e2aca69e22b1a41aab38cde575e74f, type: 3}
-  - {fileID: 3791542760128563620, guid: 24e2aca69e22b1a41aab38cde575e74f, type: 3}
+  - {fileID: 4976659650657170451, guid: cb22d1ebd2cb34649931aa5d69b12aef, type: 3}
+  - {fileID: 4654132385037238300, guid: 71cd016b4b226804899941e71ab5fd97, type: 3}
+  - {fileID: 832500208890422904, guid: 404eab964b97a3149936ef6ebeb8bc95, type: 3}
+  - {fileID: 6034229965552927075, guid: 137b1de7de06c20438726743114b147a, type: 3}
+  - {fileID: 2063489352670222470, guid: 7dd3615fb5c73b3498f155bd1067008b, type: 3}
   spawnPos: 0
   tileLength: 30
   numberOfTiles: 6
@@ -1060,6 +1060,7 @@ GameObject:
   - component: {fileID: 963194226}
   - component: {fileID: 963194229}
   - component: {fileID: 963194230}
+  - component: {fileID: 963194231}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -1178,6 +1179,20 @@ MonoBehaviour:
   m_RequiresDepthTexture: 0
   m_RequiresColorTexture: 0
   m_Version: 2
+--- !u!114 &963194231
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 963194225}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2bbee3820a112fd4b9cd9ee7036c911c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  curveX: 0
+  curveY: 0
 --- !u!1 &988481419
 GameObject:
   m_ObjectHideFlags: 0
