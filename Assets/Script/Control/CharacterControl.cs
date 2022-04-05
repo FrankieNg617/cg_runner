@@ -55,8 +55,8 @@ public class CharacterControl : MonoBehaviour
 
     void Update()
     {
-        if (!enableMovement)  //unable to control the character if the game is not started yet
-            return;
+       // if (!enableMovement)  //unable to control the character if the game is not started yet
+          //  return;
 
 
         if (direction.z < forwardSpeed)
