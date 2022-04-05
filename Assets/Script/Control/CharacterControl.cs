@@ -22,7 +22,7 @@ public class CharacterControl : MonoBehaviour
     [SerializeField] float gravity = -20;
 
     //  STATE
-    private bool enableMovement = false;
+    private bool enableMovement = true;
     private Vector3 direction;
     private bool jumpAction = false;
     private int desiredLane = 0; //-1:left 0:middle 1:right
@@ -55,8 +55,8 @@ public class CharacterControl : MonoBehaviour
 
     void Update()
     {
-       // if (!enableMovement)  //unable to control the character if the game is not started yet
-          //  return;
+        if (!enableMovement) 
+            return;
 
 
         if (direction.z < forwardSpeed)
@@ -129,7 +129,16 @@ public class CharacterControl : MonoBehaviour
     // Collision
     private void OnControllerColliderHit(ControllerColliderHit hit)
     {
+        /*
         if (hit.transform.tag == "Obstacle")
+        {
+            gameManager.isGameOver = true;
+        }
+        */
+
+
+        //game over only if the character collided with the obstacles in front of it 
+        if (hit.gameObject.tag == "Obstacle" && hit.point.z > transform.position.z + controller.radius)
         {
             gameManager.isGameOver = true;
         }
