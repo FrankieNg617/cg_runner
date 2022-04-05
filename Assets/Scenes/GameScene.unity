@@ -1521,7 +1521,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   curveX: 0
-  curveY: 0
+  curveY: -0.205
 --- !u!95 &963194232
 Animator:
   serializedVersion: 3
