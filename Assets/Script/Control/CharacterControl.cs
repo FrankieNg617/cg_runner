@@ -141,6 +141,9 @@ public class CharacterControl : MonoBehaviour
         if (hit.gameObject.tag == "Obstacle" && hit.point.z > transform.position.z + controller.radius)
         {
             gameManager.isGameOver = true;
+            FindObjectOfType<AudioManage>().StopSound("MainTheme");
+            FindObjectOfType<AudioManage>().PlaySound("GameOverTheme");
+            FindObjectOfType<AudioManage>().PlaySound("GameOverVoice");
         }
     }
 }

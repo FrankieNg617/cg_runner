@@ -9,15 +9,19 @@ public class ClickyButton : MonoBehaviour, IPointerDownHandler, IPointerUpHandle
 {
     public Image img;
     public Sprite origin, pressed;
+    public AudioClip compressClip, uncompressClip;
+    public AudioSource source;
 
     public void OnPointerDown(PointerEventData eventData)
     {
         img.sprite = pressed;
+        source.PlayOneShot(compressClip);
     }
 
     public void OnPointerUp(PointerEventData eventData)
     {
         img.sprite = origin;
+        source.PlayOneShot(uncompressClip);
         StartCoroutine(delayOnPlayButtonClick());
     }
 
