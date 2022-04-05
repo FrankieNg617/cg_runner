@@ -21,6 +21,8 @@ public class CharacterControl : MonoBehaviour
     [SerializeField] float jumpForce;
     [SerializeField] float gravity = -20;
 
+    [SerializeField] float rollInvincibleSecond = 0.5f;
+
     //  STATE
     private bool enableMovement = true;
     private Vector3 direction;
@@ -39,7 +41,7 @@ public class CharacterControl : MonoBehaviour
         gameplay = new PlayerInputAction().Gameplay;
         gameplay.move.performed += SwitchLane;
         gameplay.jump.performed += ctx => jumpAction = true;
-        gameplay.roll.performed += Roll;
+        gameplay.roll.performed += ctx => StartCoroutine(Roll());
     }
 
 
@@ -55,7 +57,7 @@ public class CharacterControl : MonoBehaviour
 
     void Update()
     {
-        if (!enableMovement) 
+        if (!enableMovement)
             return;
 
 
@@ -114,9 +116,14 @@ public class CharacterControl : MonoBehaviour
 
         desiredLane = Mathf.Clamp(desiredLane, -1, 1);
     }
-    private void Roll(InputAction.CallbackContext obj)
+    private IEnumerator Roll()
     {
         anim.SetTrigger("Roll");
+        controller.height /= 3;
+        controller.center = new Vector3(controller.center.x, controller.center.y / 3, controller.center.z);
+        yield return new WaitForSeconds(rollInvincibleSecond);
+        controller.height *= 3;
+        controller.center = new Vector3(controller.center.x, controller.center.y * 3, controller.center.z);
     }
 
     // Callback
