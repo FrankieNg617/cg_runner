@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.11261032, g: 0.281506, b: 0.7091939, a: 1}
+  m_IndirectSpecularColor: {r: 0.11457242, g: 0.33356366, b: 0.7681235, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -294,8 +294,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 237.0092, y: -161.45166}
-  m_SizeDelta: {x: 474.0184, y: 80}
+  m_AnchoredPosition: {x: 225.40088, y: -315.46368}
+  m_SizeDelta: {x: 450.80176, y: 80}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &155162856
 MonoBehaviour:
@@ -426,7 +426,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &182200969
 RectTransform:
   m_ObjectHideFlags: 0
@@ -510,7 +510,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0.000015258789, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: -181.3155, y: -39.4701}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &191308552
@@ -748,8 +748,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 237.0092, y: -61.45166}
-  m_SizeDelta: {x: 474.0184, y: 80}
+  m_AnchoredPosition: {x: 225.40088, y: -215.46368}
+  m_SizeDelta: {x: 450.80176, y: 80}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &414673795
 MonoBehaviour:
@@ -921,7 +921,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &532719537
 GameObject:
@@ -957,8 +957,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.55600005}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -5.764099, y: 13.729048}
-  m_SizeDelta: {x: -12.5282, y: -35.9328}
+  m_AnchoredPosition: {x: 19, y: -69.697}
+  m_SizeDelta: {x: -1093.3059, y: -203.9689}
   m_Pivot: {x: 0.5, y: 0.3417029}
 --- !u!114 &532719539
 MonoBehaviour:
@@ -1007,7 +1007,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 169.3
+  m_fontSize: 151.75
   m_fontSizeBase: 150
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -1015,7 +1015,7 @@ MonoBehaviour:
   m_fontSizeMax: 300
   m_fontStyle: 0
   m_HorizontalAlignment: 2
-  m_VerticalAlignment: 256
+  m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
@@ -1239,8 +1239,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 0.55600005}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: -460.9816, y: -69.5527}
+  m_AnchoredPosition: {x: 19, y: 0}
+  m_SizeDelta: {x: -1469.1982, y: -69.5527}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &813723850
 MonoBehaviour:
@@ -1268,36 +1268,6 @@ MonoBehaviour:
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
   m_ReverseArrangement: 0
---- !u!1 &827438079
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 827438080}
-  m_Layer: 0
-  m_Name: GameplayBGM
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &827438080
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 827438079}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -21.645834, y: -4.495956, z: -15.252504}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 8
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &937392000
 GameObject:
   m_ObjectHideFlags: 0
@@ -1650,9 +1620,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 89a79e5bb185f684aa828e68ac7d1968, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isGameStarted: 0
   isGameOver: 0
-  startingText: {fileID: 182200968}
   gameOverPanel: {fileID: 937392000}
 --- !u!4 &1508034828
 Transform:
@@ -1815,7 +1783,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 71.1
+  m_fontSize: 145.2
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
