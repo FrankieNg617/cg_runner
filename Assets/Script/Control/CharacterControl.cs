@@ -24,7 +24,7 @@ public class CharacterControl : MonoBehaviour
     [SerializeField] float rollInvincibleSecond = 0.5f;
 
     //  STATE
-    private bool enableMovement = true;
+    private bool enableMovement = false;
     private Vector3 direction;
     private bool jumpAction = false;
     private int desiredLane = 0; //-1:left 0:middle 1:right

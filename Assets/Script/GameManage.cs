@@ -5,9 +5,9 @@ using UnityEngine;
 
 public class GameManage : MonoBehaviour
 {
-    //public bool isGameStarted;
+    public bool isGameStarted;
     public bool isGameOver;
-    //public GameObject startingText;
+    public GameObject startingText;
     public GameObject gameOverPanel;
 
     public event Action onGameStart;
@@ -15,7 +15,7 @@ public class GameManage : MonoBehaviour
 
     void Start()
     {
-        //isGameStarted = false;
+        isGameStarted = false;
         isGameOver = false;
     }
 
@@ -37,5 +37,12 @@ public class GameManage : MonoBehaviour
             if (onGameOver != null) onGameOver();
             gameOverPanel.SetActive(true);
         }
+    }
+
+    public void StartGame()
+    {
+        isGameStarted = true;
+        if (onGameStart != null) onGameStart();
+        Destroy(startingText);
     }
 }
