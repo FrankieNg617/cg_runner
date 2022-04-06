@@ -29,6 +29,7 @@ public class ClickyButton : MonoBehaviour, IPointerDownHandler, IPointerUpHandle
     {
         yield return new WaitForSeconds(0.3f);
         SceneManager.LoadScene("GameScene");
+        
     }
 
 

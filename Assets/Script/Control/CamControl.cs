@@ -19,8 +19,9 @@ public class CamControl : MonoBehaviour
     {
         moveVector = target.position + offset;
         moveVector.x = transform.position.x;
-        moveVector.y = transform.position.y;
+        moveVector.y = target.position.y + 6;
 
         transform.position = moveVector;
     }
+    
 }
