@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using Script.Utilities;
 using UnityEngine;
@@ -12,7 +11,7 @@ public class TileManager : MonoBehaviour
 
     public Transform character;
 
-    private GameObject initialTile;
+    private int initialTileIndex;
     
     private List<GameObject> activeTiles = new List<GameObject>();
     
@@ -26,16 +25,9 @@ public class TileManager : MonoBehaviour
 
     private void InstantiateTiles()
     {
-        initialTile = tilePrefabs[0];
-        Instantiate(initialTile);
-        initialTile.SetActive(false);
-        
-        tileBound = new Bounds(Vector3.zero, Vector3.zero);
-        
-        foreach (Transform child in initialTile.transform)
-        {
-            tileBound.Encapsulate(child.GetComponent<BoxCollider>().bounds);
-        }
+        // var initialTile = tilePrefabs[0];
+        // Instantiate(initialTile);
+        // initialTile.SetActive(false);
 
         foreach(var tile in tilePrefabs)
         {
@@ -46,16 +38,23 @@ public class TileManager : MonoBehaviour
                 tilePool.Add(t);
             }
         }
+
+        var initialTile = tilePool[0];
+        
+        tileBound = new Bounds(Vector3.zero, Vector3.zero);
+        
+        foreach (Transform child in initialTile.transform)
+        {
+            tileBound.Encapsulate(child.gameObject.GetComponent<BoxCollider>().bounds);
+        }
         
         tilePool = ListUtility.Shuffle(tilePool);
-        tilePool.Insert(0, initialTile);
-        
-        Debug.Log($"Bounds {tileBound.size.z}");
+        initialTileIndex = tilePool.IndexOf(initialTile);
     }
 
     private void InitializeTiles()
     {
-        SpawnTile(0);
+        SpawnTile(initialTileIndex);
         
         for(int i = 1; i < numberOfTiles; i++)
         {
@@ -89,9 +88,11 @@ public class TileManager : MonoBehaviour
     private void DeleteTile()
     {
         GameObject gameObject = activeTiles[0];
-        activeTiles.Remove(gameObject);
         gameObject.SetActive(false);
+        
+        activeTiles.RemoveAt(0);
         tilePool.Add(gameObject);
+        
         Debug.Log($"{gameObject.name}");
     }
 }
