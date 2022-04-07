@@ -6,11 +6,13 @@ using UnityEngine.InputSystem;
 
 public class CharacterControl : MonoBehaviour
 {
+    //****
     //  REF
     private CharacterController controller;
     private PlayerInputAction.GameplayActions gameplay;
     private GameManage gameManager;
     [SerializeField] Animator anim;
+    
 
     //  CONFIG PARAMS
     [SerializeField] float forwardSpeed;
