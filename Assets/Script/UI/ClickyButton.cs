@@ -27,8 +27,8 @@ public class ClickyButton : MonoBehaviour, IPointerDownHandler, IPointerUpHandle
 
     public IEnumerator delayOnPlayButtonClick()
     {
-        yield return new WaitForSeconds(0.3f);
-        SceneManager.LoadScene("GameScene");
+        yield return new WaitForSeconds(0.1f);
+        SceneManager.LoadScene("TestMap");
         
     }
 

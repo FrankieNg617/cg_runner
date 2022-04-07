@@ -9,7 +9,7 @@ public class Events : MonoBehaviour
 
     public void ReplayGame()
     {
-        SceneManager.LoadScene("GameScene");
+        SceneManager.LoadScene("TestMap");
     }
 
 
