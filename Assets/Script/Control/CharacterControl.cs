@@ -6,11 +6,13 @@ using UnityEngine.InputSystem;
 
 public class CharacterControl : MonoBehaviour
 {
+    //****
     //  REF
     private CharacterController controller;
     private PlayerInputAction.GameplayActions gameplay;
     private GameManage gameManager;
     [SerializeField] Animator anim;
+    
 
     //  CONFIG PARAMS
     [SerializeField] float forwardSpeed;
@@ -21,8 +23,10 @@ public class CharacterControl : MonoBehaviour
     [SerializeField] float jumpForce;
     [SerializeField] float gravity = -20;
 
+    [SerializeField] float rollInvincibleSecond = 0.5f;
+
     //  STATE
-    private bool enableMovement = false;
+    private bool enableMovement = true;
     private Vector3 direction;
     private bool jumpAction = false;
     private int desiredLane = 0; //-1:left 0:middle 1:right
@@ -39,7 +43,7 @@ public class CharacterControl : MonoBehaviour
         gameplay = new PlayerInputAction().Gameplay;
         gameplay.move.performed += SwitchLane;
         gameplay.jump.performed += ctx => jumpAction = true;
-        gameplay.roll.performed += Roll;
+        gameplay.roll.performed += ctx => StartCoroutine(Roll());
     }
 
 
@@ -55,7 +59,7 @@ public class CharacterControl : MonoBehaviour
 
     void Update()
     {
-        if (!enableMovement)  //unable to control the character if the game is not started yet
+        if (!enableMovement)
             return;
 
 
@@ -114,9 +118,14 @@ public class CharacterControl : MonoBehaviour
 
         desiredLane = Mathf.Clamp(desiredLane, -1, 1);
     }
-    private void Roll(InputAction.CallbackContext obj)
+    private IEnumerator Roll()
     {
         anim.SetTrigger("Roll");
+        controller.height /= 3;
+        controller.center = new Vector3(controller.center.x, controller.center.y / 3, controller.center.z);
+        yield return new WaitForSeconds(rollInvincibleSecond);
+        controller.height *= 3;
+        controller.center = new Vector3(controller.center.x, controller.center.y * 3, controller.center.z);
     }
 
     // Callback
@@ -129,9 +138,21 @@ public class CharacterControl : MonoBehaviour
     // Collision
     private void OnControllerColliderHit(ControllerColliderHit hit)
     {
+        /*
         if (hit.transform.tag == "Obstacle")
         {
             gameManager.isGameOver = true;
+        }
+        */
+
+
+        //game over only if the character collided with the obstacles in front of it 
+        if (hit.gameObject.tag == "Obstacle" && hit.point.z > transform.position.z + controller.radius)
+        {
+            gameManager.isGameOver = true;
+            FindObjectOfType<AudioManage>().StopSound("MainTheme");
+            FindObjectOfType<AudioManage>().PlaySound("GameOverTheme");
+            FindObjectOfType<AudioManage>().PlaySound("GameOverVoice");
         }
     }
 }
