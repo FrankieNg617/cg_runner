@@ -12,9 +12,9 @@ public class TileManager : MonoBehaviour
     public Transform character;
 
     private int initialTileIndex;
-    
+
     private List<GameObject> activeTiles = new List<GameObject>();
-    
+
     private List<GameObject> tilePool = new List<GameObject>();
 
     public void Start()
@@ -29,7 +29,7 @@ public class TileManager : MonoBehaviour
         // Instantiate(initialTile);
         // initialTile.SetActive(false);
 
-        foreach(var tile in tilePrefabs)
+        foreach (var tile in tilePrefabs)
         {
             for (int i = 0; i < 3; i++)
             {
@@ -40,14 +40,15 @@ public class TileManager : MonoBehaviour
         }
 
         var initialTile = tilePool[0];
-        
+
         tileBound = new Bounds(Vector3.zero, Vector3.zero);
-        
-        foreach (Transform child in initialTile.transform)
+
+        BoxCollider[] colliders = initialTile.GetComponentsInChildren<BoxCollider>();
+        foreach (var collider in colliders)
         {
-            tileBound.Encapsulate(child.gameObject.GetComponent<BoxCollider>().bounds);
+            tileBound.Encapsulate(collider.bounds);
         }
-        
+
         tilePool = ListUtility.Shuffle(tilePool);
         initialTileIndex = tilePool.IndexOf(initialTile);
     }
@@ -55,16 +56,16 @@ public class TileManager : MonoBehaviour
     private void InitializeTiles()
     {
         SpawnTile(initialTileIndex);
-        
-        for(int i = 1; i < numberOfTiles; i++)
+
+        for (int i = 1; i < numberOfTiles; i++)
         {
             SpawnTile(Random.Range(0, tilePool.Count));
         }
     }
-    
+
     void Update()
     {
-        if(character.position.z - 35 > spawnPos - (numberOfTiles * tileBound.size.z))
+        if (character.position.z - 35 > spawnPos - (numberOfTiles * tileBound.size.z))
         {
             SpawnTile(Random.Range(0, tilePool.Count));
             DeleteTile();    // delete the odd tile whenever a new tile has been created
@@ -75,7 +76,7 @@ public class TileManager : MonoBehaviour
     {
         GameObject gameObject = tilePool[tileIndex];
         tilePool.RemoveAt(tileIndex);
-        
+
         activeTiles.Add(gameObject);
         var objectTransform = transform;
         gameObject.transform.position = objectTransform.forward * spawnPos;
@@ -89,10 +90,10 @@ public class TileManager : MonoBehaviour
     {
         GameObject gameObject = activeTiles[0];
         gameObject.SetActive(false);
-        
+
         activeTiles.RemoveAt(0);
         tilePool.Add(gameObject);
-        
+
         Debug.Log($"{gameObject.name}");
     }
 }
