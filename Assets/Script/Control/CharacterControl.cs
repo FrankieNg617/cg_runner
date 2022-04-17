@@ -12,7 +12,7 @@ public class CharacterControl : MonoBehaviour
     private PlayerInputAction.GameplayActions gameplay;
     private GameManage gameManager;
     [SerializeField] Animator anim;
-    
+
 
     //  CONFIG PARAMS
     [SerializeField] float forwardSpeed;

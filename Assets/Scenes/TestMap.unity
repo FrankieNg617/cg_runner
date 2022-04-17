@@ -1571,6 +1571,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Character
       objectReference: {fileID: 0}
+    - target: {fileID: 8921471099186548625, guid: 0fb43873db58a45488f424fac46ee070, type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
     - target: {fileID: 8921471099186548630, guid: 0fb43873db58a45488f424fac46ee070, type: 3}
       propertyPath: m_RootOrder
       value: 2
