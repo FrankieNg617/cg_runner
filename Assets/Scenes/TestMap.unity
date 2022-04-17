@@ -854,10 +854,10 @@ MonoBehaviour:
   tilePrefabs:
   - {fileID: 1821634929486944408, guid: 04ee7efd605079f4ca5e197130802cde, type: 3}
   - {fileID: 1668819678258779105, guid: 9d87ffeeb96012d4996a8893028dcbf5, type: 3}
-  - {fileID: 1668819678258779105, guid: 9d87ffeeb96012d4996a8893028dcbf5, type: 3}
-  - {fileID: 1668819678258779105, guid: 9d87ffeeb96012d4996a8893028dcbf5, type: 3}
-  - {fileID: 1668819678258779105, guid: 9d87ffeeb96012d4996a8893028dcbf5, type: 3}
-  - {fileID: 1668819678258779105, guid: 9d87ffeeb96012d4996a8893028dcbf5, type: 3}
+  - {fileID: 6664043351688291913, guid: 5b74e1d040460204d8a22933a15bafce, type: 3}
+  - {fileID: 6664043351688291913, guid: 5b74e1d040460204d8a22933a15bafce, type: 3}
+  - {fileID: 6664043351688291913, guid: 5b74e1d040460204d8a22933a15bafce, type: 3}
+  - {fileID: 6664043351688291913, guid: 5b74e1d040460204d8a22933a15bafce, type: 3}
   spawnPos: 0
   tileBound:
     m_Center: {x: 0, y: 0, z: 0}
@@ -1195,7 +1195,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   curveX: 0
-  curveY: -0.293
+  curveY: 0
 --- !u!95 &963194232
 Animator:
   serializedVersion: 3
