@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -33,6 +34,9 @@ public class CharacterControl : MonoBehaviour
 
     private int curLane = 0;
 
+    //  Event
+    public event Action onCriticalHit;
+    public event Action onHit;
 
     void Awake()
     {
@@ -168,25 +172,17 @@ public class CharacterControl : MonoBehaviour
         RaycastHit[] rcHitsRight = Physics.RaycastAll(origin, transform.right, laneDistance);
         RaycastHit[] rcHitsLeft = Physics.RaycastAll(origin, -transform.right, laneDistance);
 
+        var rcHits = rcHitsRight.Concat(rcHitsLeft);
 
-        foreach (var rcHit in rcHitsRight)
+        foreach (var rcHit in rcHits)
         {
             var tag = rcHit.collider.gameObject.tag;
             if (tag != "Static" && tag != "Player")
             {
                 desiredLane = curLane;
+                if (onHit != null) onHit();
                 break;
             }
         }
-        foreach (var rcHit in rcHitsLeft)
-        {
-            var tag = rcHit.collider.gameObject.tag;
-            if (tag != "Static" && tag != "Player")
-            {
-                desiredLane = curLane;
-                break;
-            }
-        }
-
     }
 }
