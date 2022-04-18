@@ -656,7 +656,7 @@
         "m_GuidSerialized": "49ee9cae-8e18-459e-8d99-c1eaf7df70a8"
     },
     "m_Name": "CurveX",
-    "m_DefaultReferenceName": "",
+    "m_DefaultReferenceName": "Vector1_4d770d46c5354e4f9026fb2b9cafb5e0",
     "m_OverrideReferenceName": "",
     "m_GeneratePropertyBlock": true,
     "m_Precision": 0,
@@ -1419,7 +1419,7 @@
         "m_GuidSerialized": "8aa6b637-0157-47e5-8d26-ffd081985b6c"
     },
     "m_Name": "CurveY",
-    "m_DefaultReferenceName": "",
+    "m_DefaultReferenceName": "Vector1_a79be4fc16c747d79508f1ec3b7ee59c",
     "m_OverrideReferenceName": "",
     "m_GeneratePropertyBlock": true,
     "m_Precision": 0,

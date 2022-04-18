@@ -29,8 +29,6 @@ public class ClickyButton : MonoBehaviour, IPointerDownHandler, IPointerUpHandle
     {
         yield return new WaitForSeconds(0.1f);
         SceneManager.LoadScene("TestMap");
-        
+
     }
-
-
 }
