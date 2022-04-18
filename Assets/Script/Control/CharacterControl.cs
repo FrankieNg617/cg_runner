@@ -31,6 +31,8 @@ public class CharacterControl : MonoBehaviour
     private bool jumpAction = false;
     private int desiredLane = 0; //-1:left 0:middle 1:right
 
+    private int curLane = 0;
+
 
     void Awake()
     {
@@ -87,6 +89,7 @@ public class CharacterControl : MonoBehaviour
         }
         else
         {
+            curLane = desiredLane;
             direction.x = 0;
         }
 
@@ -145,13 +148,9 @@ public class CharacterControl : MonoBehaviour
     // Collision
     private void OnControllerColliderHit(ControllerColliderHit hit)
     {
-        /*
-        if (hit.transform.tag == "Obstacle")
-        {
-            gameManager.isGameOver = true;
-        }
-        */
+        if (hit.gameObject.tag == "Static") return;
 
+        HandleSideCollision();
 
         //game over only if the character collided with the obstacles in front of it 
         if (hit.gameObject.tag == "Obstacle" && hit.point.z > transform.position.z + controller.radius)
@@ -161,5 +160,33 @@ public class CharacterControl : MonoBehaviour
             FindObjectOfType<AudioManage>().PlaySound("GameOverTheme");
             FindObjectOfType<AudioManage>().PlaySound("GameOverVoice");
         }
+    }
+
+    private void HandleSideCollision()
+    {
+        Vector3 origin = transform.position + Vector3.up * controller.height;
+        RaycastHit[] rcHitsRight = Physics.RaycastAll(origin, transform.right, laneDistance);
+        RaycastHit[] rcHitsLeft = Physics.RaycastAll(origin, -transform.right, laneDistance);
+
+
+        foreach (var rcHit in rcHitsRight)
+        {
+            var tag = rcHit.collider.gameObject.tag;
+            if (tag != "Static" || tag != "Player")
+            {
+                desiredLane = curLane;
+                break;
+            }
+        }
+        foreach (var rcHit in rcHitsLeft)
+        {
+            var tag = rcHit.collider.gameObject.tag;
+            if (tag != "Static" || tag != "Player")
+            {
+                desiredLane = curLane;
+                break;
+            }
+        }
+
     }
 }

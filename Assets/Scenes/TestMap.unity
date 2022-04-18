@@ -1621,15 +1621,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8921471099186548650, guid: 0fb43873db58a45488f424fac46ee070, type: 3}
       propertyPath: gravity
-      value: -30
+      value: -60
       objectReference: {fileID: 0}
     - target: {fileID: 8921471099186548650, guid: 0fb43873db58a45488f424fac46ee070, type: 3}
       propertyPath: jumpForce
-      value: 15
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 8921471099186548650, guid: 0fb43873db58a45488f424fac46ee070, type: 3}
+      propertyPath: forwardSpeed
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 8921471099186548650, guid: 0fb43873db58a45488f424fac46ee070, type: 3}
       propertyPath: horizontalSpeed
-      value: 6
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0fb43873db58a45488f424fac46ee070, type: 3}

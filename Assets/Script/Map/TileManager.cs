@@ -94,6 +94,6 @@ public class TileManager : MonoBehaviour
         activeTiles.RemoveAt(0);
         tilePool.Add(gameObject);
 
-        Debug.Log($"{gameObject.name}");
+        // Debug.Log($"TileManager: {gameObject.name}");
     }
 }
