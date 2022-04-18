@@ -5,46 +5,23 @@ using UnityEngine;
 
 public class GameManage : MonoBehaviour
 {
-    //public bool isGameStarted;
-    public bool isGameOver;
-    //public GameObject startingText;
     public GameObject gameOverPanel;
+    private AudioManage audioManage;
 
     public event Action onGameStart;
     public event Action onGameOver;
 
-    void Start()
+    private void Awake()
     {
-        //isGameStarted = false;
-        isGameOver = false;
+        audioManage = FindObjectOfType<AudioManage>();
     }
 
-
-    void Update()
+    public void EndGame()
     {
-        /*
-        if (Input.GetMouseButtonDown(0))
-        {
-            isGameStarted = true;
-            print(isGameStarted);
-            if (onGameStart != null) onGameStart();
-            Destroy(startingText);
-        }
-        */
-
-        if (isGameOver)
-        {
-            if (onGameOver != null) onGameOver();
-            gameOverPanel.SetActive(true);
-        }
+        audioManage.StopSound("MainTheme");
+        audioManage.PlaySound("GameOverTheme");
+        audioManage.PlaySound("GameOverVoice");
+        if (onGameOver != null) onGameOver();
+        gameOverPanel.SetActive(true);
     }
-
-/*
-    public void StartGame()
-    {
-        isGameStarted = true;
-        if (onGameStart != null) onGameStart();
-        Destroy(startingText);
-    }
-    */
 }
