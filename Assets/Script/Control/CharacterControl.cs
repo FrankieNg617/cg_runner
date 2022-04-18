@@ -66,10 +66,10 @@ public class CharacterControl : MonoBehaviour
         if (direction.z < forwardSpeed)
             direction.z += acceleration * Time.deltaTime;  //increase the character's speed by 0.1 each sec
 
+
         HandleJump();
 
         HandleLaneMovement();
-
         controller.Move(direction * Time.deltaTime);
     }
 
@@ -98,11 +98,18 @@ public class CharacterControl : MonoBehaviour
 
     private void HandleJump()
     {
-        if (controller.isGrounded && jumpAction) //only able to jump when character is on the ground -> avoid double jump
+        if (controller.isGrounded) //only able to jump when character is on the ground -> avoid double jump
         {
-            direction.y = jumpForce;
-            anim.SetTrigger("Jump");
-            jumpAction = false;
+            if (jumpAction)
+            {
+                direction.y = jumpForce;
+                anim.SetTrigger("Jump");
+                jumpAction = false;
+            }
+            else
+            {
+                direction.y = 0f;
+            }
         }
         else //only add the gravity to the character when it is jumping
         {
