@@ -172,7 +172,7 @@ public class CharacterControl : MonoBehaviour
         foreach (var rcHit in rcHitsRight)
         {
             var tag = rcHit.collider.gameObject.tag;
-            if (tag != "Static" || tag != "Player")
+            if (tag != "Static" && tag != "Player")
             {
                 desiredLane = curLane;
                 break;
@@ -181,7 +181,7 @@ public class CharacterControl : MonoBehaviour
         foreach (var rcHit in rcHitsLeft)
         {
             var tag = rcHit.collider.gameObject.tag;
-            if (tag != "Static" || tag != "Player")
+            if (tag != "Static" && tag != "Player")
             {
                 desiredLane = curLane;
                 break;
