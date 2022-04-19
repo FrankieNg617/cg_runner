@@ -5,6 +5,7 @@ using UnityEngine;
 using TMPro;
 using Photon.Pun;
 using Photon.Realtime;
+using UnityEngine.UI;
 
 public class GameManage : MonoBehaviourPunCallbacks
 {
@@ -19,9 +20,16 @@ public class GameManage : MonoBehaviourPunCallbacks
     public event Action onGameStart;
     public event Action onGameOver;
 
+    public static int numberOfCoins;
+    public Text score;
+    public Text finalScore;
+    public Text highScore;
+
     private void Awake()
     {
         audioManage = FindObjectOfType<AudioManage>();
+        numberOfCoins = 0;
+        highScore.text = PlayerPrefs.GetInt("HighScore", 0).ToString();
     }
 
     private void Start()
@@ -58,5 +66,18 @@ public class GameManage : MonoBehaviourPunCallbacks
         audioManage.PlaySound("GameOverVoice");
         onGameOver();
         gameOverPanel.SetActive(true);
+
+        finalScore.text = numberOfCoins.ToString();
+        if(numberOfCoins > PlayerPrefs.GetInt("HighScore", 0))
+        {
+            //Store the highest score into the system 
+            PlayerPrefs.SetInt("HighScore", numberOfCoins);
+            highScore.text = numberOfCoins.ToString();
+        }
+    }
+
+    void Update()
+    {
+        score.text = numberOfCoins.ToString();
     }
 }
