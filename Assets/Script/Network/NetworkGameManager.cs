@@ -18,9 +18,28 @@ public class NetworkGameManager : MonoBehaviourPunCallbacks
         gameManage = FindObjectOfType<GameManage>();
     }
 
+    public override void OnEnable()
+    {
+        base.OnEnable();
+        gameManage.onGameOver += LeaveRoom;
+    }
+
+    public override void OnDisable()
+    {
+        base.OnDisable();
+        gameManage.onGameOver -= LeaveRoom;
+    }
+
+
     private void Start()
     {
         photonView.RPC("OnJoinedGame", RpcTarget.AllBuffered);
+    }
+
+    private void LeaveRoom()
+    {
+        print("Leave room");
+        PhotonNetwork.LeaveRoom();
     }
 
     [PunRPC]
@@ -37,5 +56,7 @@ public class NetworkGameManager : MonoBehaviourPunCallbacks
     private void SpawnPlayer()
     {
         GameObject player = PhotonNetwork.Instantiate("NetworkCharacter", Vector3.zero, Quaternion.identity);
+
+        player.GetComponent<NetworkCharacterControl>().photonView.RPC("Init", RpcTarget.All, PhotonNetwork.LocalPlayer);
     }
 }

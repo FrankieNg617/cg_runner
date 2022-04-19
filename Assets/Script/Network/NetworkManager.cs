@@ -6,22 +6,24 @@ using Photon.Realtime;
 
 public class NetworkManager : MonoBehaviourPunCallbacks
 {
+    public static NetworkManager instance;
     private void Awake()
     {
-        var instances = FindObjectsOfType<NetworkManager>();
-        foreach (var instance in instances)
+        if (instance != null && instance != this)
         {
-            if (instance != this)
-            {
-                Destroy(instance.gameObject);
-            }
+            Destroy(gameObject);
         }
+        instance = this;
         DontDestroyOnLoad(gameObject);
+
     }
 
     private void Start()
     {
-        PhotonNetwork.ConnectUsingSettings();
+        if (!PhotonNetwork.IsConnected)
+        {
+            PhotonNetwork.ConnectUsingSettings();
+        }
     }
 
     public void CreateRoom(string roomName)

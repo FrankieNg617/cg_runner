@@ -7,9 +7,6 @@ using UnityEngine.InputSystem;
 
 public class CharacterControl : MonoBehaviour
 {
-    [HideInInspector]
-    public string id;
-
     //****
     //  REF
     private CharacterController controller;
@@ -182,8 +179,8 @@ public class CharacterControl : MonoBehaviour
 
         foreach (var rcHit in rcHits)
         {
-            var tag = rcHit.collider.gameObject.tag;
-            if (tag != "Static" && tag != "Player")
+            var hitObj = rcHit.collider.gameObject;
+            if (hitObj.tag != "Static" && hitObj != gameObject)
             {
                 desiredLane = curLane;
                 if (onHit != null) onHit();

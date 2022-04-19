@@ -16,28 +16,27 @@ public class MenuController : MonoBehaviourPunCallbacks
     [SerializeField] GameObject mainScreen;
     [SerializeField] GameObject lobbyScreen;
 
-    NetworkManager networkManager;
-
-    private void Awake()
-    {
-        networkManager = FindObjectOfType<NetworkManager>();
-    }
 
     private void Start()
     {
-        createRoomBtn.interactable = false;
-        joinRoomBtn.interactable = false;
+        if (!PhotonNetwork.IsConnected)
+        {
+            createRoomBtn.interactable = false;
+            joinRoomBtn.interactable = false;
+        }
     }
 
     #region PunCallbacks
     public override void OnConnectedToMaster()
     {
+        base.OnConnectedToMaster();
         createRoomBtn.interactable = true;
         joinRoomBtn.interactable = true;
     }
 
     public override void OnJoinedRoom()
     {
+        base.OnJoinedRoom();
         ChangeScreen(lobbyScreen);
         if (!PhotonNetwork.IsMasterClient)
             startGameBtn.gameObject.SetActive(false);
@@ -54,11 +53,11 @@ public class MenuController : MonoBehaviourPunCallbacks
     #region UICallbacks
     public void CreateRoom(TMP_InputField inputField)
     {
-        networkManager.CreateRoom(inputField.text);
+        NetworkManager.instance.CreateRoom(inputField.text);
     }
     public void JoinRoom(TMP_InputField inputField)
     {
-        networkManager.JoinRoom(inputField.text);
+        NetworkManager.instance.JoinRoom(inputField.text);
     }
 
     public void LeaveRoom()
@@ -75,7 +74,8 @@ public class MenuController : MonoBehaviourPunCallbacks
     public void StartGame()
     {
         if (!PhotonNetwork.IsMasterClient) return;
-        networkManager.photonView.RPC("LoadLevel", RpcTarget.AllViaServer, "MPGameScene");
+        print(NetworkManager.instance);
+        NetworkManager.instance.photonView.RPC("LoadLevel", RpcTarget.AllViaServer, "MPGameScene");
     }
     #endregion
 

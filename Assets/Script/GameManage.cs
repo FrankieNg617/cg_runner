@@ -56,7 +56,7 @@ public class GameManage : MonoBehaviourPunCallbacks
         audioManage.StopSound("MainTheme");
         audioManage.PlaySound("GameOverTheme");
         audioManage.PlaySound("GameOverVoice");
-        if (onGameOver != null) onGameOver();
+        onGameOver();
         gameOverPanel.SetActive(true);
     }
 }
