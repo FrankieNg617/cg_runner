@@ -641,6 +641,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1593201254 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5488860492638952925, guid: 7e24d7a870b45ac4a877ebe427c94f86, type: 3}
+  m_PrefabInstance: {fileID: 206296909}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 19c4f262580938d4b9c595c4ba501d22, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1614899253
 GameObject:
   m_ObjectHideFlags: 0
@@ -778,8 +789,43 @@ PrefabInstance:
       propertyPath: countDownTxt
       value: 
       objectReference: {fileID: 2138643202}
+    - target: {fileID: 4922243569384696205, guid: 4d73b4102ff92094a81a15de7858381e, type: 3}
+      propertyPath: gameOverPanel
+      value: 
+      objectReference: {fileID: 2138643203}
+    - target: {fileID: 4922243569384696205, guid: 4d73b4102ff92094a81a15de7858381e, type: 3}
+      propertyPath: isMultiplayer
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4d73b4102ff92094a81a15de7858381e, type: 3}
+--- !u!1 &2130610583 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4922243569384696204, guid: 4d73b4102ff92094a81a15de7858381e, type: 3}
+  m_PrefabInstance: {fileID: 2130610582}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2130610584
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2130610583}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 3
+  OwnershipTransfer: 0
+  observableSearch: 2
+  ObservedComponents: []
+  sceneViewId: 101
+  InstantiationId: 0
+  isRuntimeInstantiated: 0
 --- !u!1001 &2138643200
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -787,6 +833,26 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3029433637748493446, guid: a91973e41ba78a44eaeccc75f3568232, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3029433638024822767, guid: a91973e41ba78a44eaeccc75f3568232, type: 3}
+      propertyPath: m_TargetGraphic
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 3029433638024822767, guid: a91973e41ba78a44eaeccc75f3568232, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1593201254}
+    - target: {fileID: 3029433638024822767, guid: a91973e41ba78a44eaeccc75f3568232, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: QuitGame
+      objectReference: {fileID: 0}
+    - target: {fileID: 3029433638024822767, guid: a91973e41ba78a44eaeccc75f3568232, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: Events, Assembly-CSharp
+      objectReference: {fileID: 0}
     - target: {fileID: 3029433638139855777, guid: a91973e41ba78a44eaeccc75f3568232, type: 3}
       propertyPath: m_Name
       value: Canvas
@@ -899,3 +965,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &2138643203 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3029433638274355335, guid: a91973e41ba78a44eaeccc75f3568232, type: 3}
+  m_PrefabInstance: {fileID: 2138643200}
+  m_PrefabAsset: {fileID: 0}
