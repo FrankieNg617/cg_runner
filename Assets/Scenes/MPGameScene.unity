@@ -1468,6 +1468,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameOverPanel: {fileID: 937392000}
+  isMultiplayer: 1
   countDownTxt: {fileID: 629228037}
   countDownSeconds: 5
 --- !u!4 &1508034828

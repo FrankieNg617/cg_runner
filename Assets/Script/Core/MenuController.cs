@@ -12,6 +12,7 @@ public class MenuController : MonoBehaviourPunCallbacks
     [SerializeField] Button createRoomBtn;
 
     [SerializeField] Button joinRoomBtn;
+    [SerializeField] Button startGameBtn;
     [SerializeField] GameObject mainScreen;
     [SerializeField] GameObject lobbyScreen;
 
@@ -26,7 +27,9 @@ public class MenuController : MonoBehaviourPunCallbacks
     {
         createRoomBtn.interactable = false;
         joinRoomBtn.interactable = false;
-        print(photonView);
+
+        if (!PhotonNetwork.IsMasterClient)
+            startGameBtn.gameObject.SetActive(false);
     }
 
     #region PunCallbacks
@@ -67,6 +70,12 @@ public class MenuController : MonoBehaviourPunCallbacks
     public void UpdatePlayerName(TMP_InputField inputField)
     {
         PhotonNetwork.NickName = inputField.text;
+    }
+
+    public void StartGame()
+    {
+        if (!PhotonNetwork.IsMasterClient) return;
+        networkManager.photonView.RPC("LoadLevel", RpcTarget.AllViaServer, "MPGameScene");
     }
     #endregion
 

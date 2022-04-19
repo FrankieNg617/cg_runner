@@ -155,6 +155,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   createRoomBtn: {fileID: 824093080}
   joinRoomBtn: {fileID: 1170002870}
+  startGameBtn: {fileID: 0}
   mainScreen: {fileID: 195821288}
   lobbyScreen: {fileID: 2130498600}
 --- !u!4 &30183600
@@ -3504,7 +3505,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1800462685}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 30183599}
+        m_TargetAssemblyTypeName: MenuController, Assembly-CSharp
+        m_MethodName: StartGame
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1800462685
 MonoBehaviour:
   m_ObjectHideFlags: 0
