@@ -38,6 +38,7 @@ public class CharacterControl : MonoBehaviour
     public event Action onCriticalHit;
     public event Action onHit;
 
+
     void Awake()
     {
         controller = GetComponent<CharacterController>();
