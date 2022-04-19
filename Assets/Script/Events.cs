@@ -15,6 +15,7 @@ public class Events : MonoBehaviour
 
     public void QuitGame()
     {
-        SceneManager.LoadScene("WelcomeScene");
+        NetworkManager.instance.LoadLevel("WelcomeScene");
+        //SceneManager.LoadScene("WelcomeScene");
     }
 }

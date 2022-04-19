@@ -74,8 +74,7 @@ public class MenuController : MonoBehaviourPunCallbacks
     public void StartGame()
     {
         if (!PhotonNetwork.IsMasterClient) return;
-        print(NetworkManager.instance);
-        NetworkManager.instance.photonView.RPC("LoadLevel", RpcTarget.AllViaServer, "MPGameScene");
+        FindObjectOfType<NetworkManager>().photonView.RPC("LoadLevel", RpcTarget.AllViaServer, "MPGameScene");
     }
     #endregion
 

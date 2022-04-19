@@ -18,27 +18,14 @@ public class NetworkGameManager : MonoBehaviourPunCallbacks
         gameManage = FindObjectOfType<GameManage>();
     }
 
-    public override void OnEnable()
-    {
-        base.OnEnable();
-        gameManage.onGameOver += LeaveRoom;
-    }
-
-    public override void OnDisable()
-    {
-        base.OnDisable();
-        gameManage.onGameOver -= LeaveRoom;
-    }
-
 
     private void Start()
     {
         photonView.RPC("OnJoinedGame", RpcTarget.AllBuffered);
     }
 
-    private void LeaveRoom()
+    public void LeaveRoom()
     {
-        print("Leave room");
         PhotonNetwork.LeaveRoom();
     }
 
