@@ -7,6 +7,9 @@ using UnityEngine.InputSystem;
 
 public class CharacterControl : MonoBehaviour
 {
+    [HideInInspector]
+    public string id;
+
     //****
     //  REF
     private CharacterController controller;

@@ -65,6 +65,12 @@ public class TileManager : MonoBehaviour
 
     void Update()
     {
+        if (character == null)
+        {
+            character = GameObject.FindWithTag("Player")?.transform;
+            return;
+        }
+
         if (character.position.z - 35 > spawnPos - (numberOfTiles * tileBound.size.z))
         {
             SpawnTile(Random.Range(0, tilePool.Count));

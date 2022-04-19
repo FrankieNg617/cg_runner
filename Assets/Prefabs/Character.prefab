@@ -92,9 +92,10 @@ GameObject:
   - component: {fileID: 8921471099186548630}
   - component: {fileID: 8921471099186548650}
   - component: {fileID: 8921471099186548628}
+  - component: {fileID: 936337259}
   m_Layer: 0
   m_Name: Character
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -127,13 +128,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 10430792fda01344fa5b29c913f946eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  id: 
   anim: {fileID: 8835384764426683397}
-  forwardSpeed: 10
+  forwardSpeed: 20
   horizontalSpeed: 10
   acceleration: 30
   laneDistance: 5
-  jumpForce: 10
-  gravity: -20
+  jumpForce: 25
+  gravity: -60
+  rollInvincibleSecond: 0.5
 --- !u!143 &8921471099186548628
 CharacterController:
   m_ObjectHideFlags: 0
@@ -152,6 +155,18 @@ CharacterController:
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 0.96, z: 0}
+--- !u!114 &936337259
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8921471099186548625}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7349fd4c92f38794eb97daeadf4a95c5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &8921471097634224221
 PrefabInstance:
   m_ObjectHideFlags: 0

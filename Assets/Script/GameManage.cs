@@ -3,8 +3,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using Photon.Pun;
+using Photon.Realtime;
 
-public class GameManage : MonoBehaviour
+public class GameManage : MonoBehaviourPunCallbacks
 {
     public GameObject gameOverPanel;
     private AudioManage audioManage;
@@ -27,6 +29,7 @@ public class GameManage : MonoBehaviour
         if (!isMultiplayer) StartCountDown();
     }
 
+    [PunRPC]
     private void StartCountDown()
     {
         StartCoroutine(CountDown());

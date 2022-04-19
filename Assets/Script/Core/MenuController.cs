@@ -27,9 +27,6 @@ public class MenuController : MonoBehaviourPunCallbacks
     {
         createRoomBtn.interactable = false;
         joinRoomBtn.interactable = false;
-
-        if (!PhotonNetwork.IsMasterClient)
-            startGameBtn.gameObject.SetActive(false);
     }
 
     #region PunCallbacks
@@ -42,6 +39,9 @@ public class MenuController : MonoBehaviourPunCallbacks
     public override void OnJoinedRoom()
     {
         ChangeScreen(lobbyScreen);
+        if (!PhotonNetwork.IsMasterClient)
+            startGameBtn.gameObject.SetActive(false);
+
         this.photonView.RPC("UpdateLobby", RpcTarget.All);
     }
 
