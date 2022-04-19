@@ -10,21 +10,21 @@ public class CamControl : MonoBehaviour
 
     private Transform playerTransform;
 
-    private void Awake()
-    {
-        playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
-    }
-
     void Start()
     {
-        offset = transform.position - target.position - new Vector3(0, 0, 2);
+        offset = transform.position - Vector3.zero - new Vector3(0, 0, 2);
     }
 
 
     void LateUpdate()
     {
+        if (target == null)
+        {
+            target = GameObject.FindWithTag("Player")?.transform;
+            return;
+        }
         moveVector = target.position + offset;
-        moveVector.x = playerTransform.position.x;
+        moveVector.x = target.position.x;
         moveVector.y = target.position.y + 6;
 
         transform.position = moveVector;

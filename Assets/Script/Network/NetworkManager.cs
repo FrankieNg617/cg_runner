@@ -2,30 +2,36 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
+using Photon.Realtime;
 
 public class NetworkManager : MonoBehaviourPunCallbacks
 {
+    public static NetworkManager instance;
     private void Awake()
     {
-        var instances = FindObjectsOfType<NetworkManager>();
-        foreach (var instance in instances)
+        if (instance != null && instance != this)
         {
-            if (instance != this)
-            {
-                Destroy(instance.gameObject);
-            }
+            Destroy(gameObject);
         }
+        instance = this;
         DontDestroyOnLoad(gameObject);
+
     }
 
     private void Start()
     {
-        PhotonNetwork.ConnectUsingSettings();
+        if (!PhotonNetwork.IsConnected)
+        {
+            PhotonNetwork.ConnectUsingSettings();
+        }
     }
 
     public void CreateRoom(string roomName)
     {
-        PhotonNetwork.CreateRoom(roomName);
+        RoomOptions options = new RoomOptions();
+        options.MaxPlayers = 2;
+
+        PhotonNetwork.CreateRoom(roomName, options);
     }
 
     public void JoinRoom(string roomName)
@@ -33,6 +39,7 @@ public class NetworkManager : MonoBehaviourPunCallbacks
         PhotonNetwork.JoinRoom(roomName);
     }
 
+    [PunRPC]
     public void LoadLevel(string levelName)
     {
         PhotonNetwork.LoadLevel(levelName);
@@ -42,7 +49,6 @@ public class NetworkManager : MonoBehaviourPunCallbacks
     public override void OnConnectedToMaster()
     {
         Debug.Log("NetworkManager: Connected to master server");
-        CreateRoom("testroom");
     }
 
     public override void OnCreatedRoom()

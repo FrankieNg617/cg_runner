@@ -8,32 +8,31 @@ public class AudioManage : MonoBehaviour
 
     void Start()
     {
-        foreach(Sound s in sounds)
+        foreach (Sound s in sounds)
         {
             s.source = gameObject.AddComponent<AudioSource>();
             s.source.clip = s.clip;
             s.source.loop = s.loop;
             s.source.volume = s.volume;
+            s.source.playOnAwake = false;
         }
-
-        PlaySound("MainTheme");
     }
 
     public void PlaySound(string name)
     {
-        foreach(Sound s in sounds)
+        foreach (Sound s in sounds)
         {
-           if(s.name == name)
-              s.source.Play();
+            if (s.name == name)
+                s.source.Play();
         }
     }
 
     public void StopSound(string name)
     {
-        foreach(Sound s in sounds)
+        foreach (Sound s in sounds)
         {
-           if(s.name == name)
-              s.source.Stop();
+            if (s.name == name)
+                s.source.Stop();
         }
     }
 }
