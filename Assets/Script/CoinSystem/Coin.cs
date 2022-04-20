@@ -34,7 +34,16 @@ public class Coin : MonoBehaviour
     public void collectCoin()
     {
         FindObjectOfType<AudioManage>().PlaySound("PickUpCoin");
-        GameManage.numberOfCoins += 1;
+        
+        if(!GameManage.isMultiple)
+        {
+            GameManage.numberOfCoins += 1;
+        }
+        else
+        {
+            GameManage.numberOfCoins += 2;
+        }
+        
         Destroy(gameObject);
     }
 

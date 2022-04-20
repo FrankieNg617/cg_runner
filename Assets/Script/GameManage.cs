@@ -26,7 +26,9 @@ public class GameManage : MonoBehaviourPunCallbacks
     public Text highScore;
 
     public float magnetDuration;
+    public float multipleDuration;
     public GameObject coinDetector;
+    public static bool isMultiple = false;
 
     private void Awake()
     {
@@ -89,6 +91,19 @@ public class GameManage : MonoBehaviourPunCallbacks
     {
         yield return new WaitForSeconds(duration);
         coinDetector.SetActive(false);
+    }
+
+    public void onMultiple()
+    {
+        Debug.Log("x2");
+        isMultiple = true;
+        StartCoroutine(multipleTimer(multipleDuration));
+    }
+
+    IEnumerator multipleTimer(float duration)
+    {
+        yield return new WaitForSeconds(duration);
+        isMultiple = false;
     }
 
     void Update()
