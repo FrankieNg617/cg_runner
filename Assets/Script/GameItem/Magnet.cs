@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class Magnet : MonoBehaviour
 {
-    public GameObject magnet;
-    public GameObject coinDetector;
     private GameManage gameManager;
 
     void Start()
@@ -22,10 +20,7 @@ public class Magnet : MonoBehaviour
     {
         if(other.tag == "Player")
         {
-            FindObjectOfType<AudioManage>().PlaySound("PickUpCoin");
-            coinDetector.SetActive(true);
-            Destroy(magnet);
-            gameManager.Magnet();
+            gameManager.onMagnet();
         }
     }
 
