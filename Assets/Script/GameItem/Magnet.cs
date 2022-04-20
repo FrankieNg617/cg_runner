@@ -6,13 +6,13 @@ public class Magnet : MonoBehaviour
 {
     public GameObject magnet;
     public GameObject coinDetector;
-    
+    private GameManage gameManager;
+
     void Start()
     {
-        
+        gameManager = GameObject.FindWithTag("GameManage")?.GetComponent<GameManage>();
     }
 
-    
     void Update()
     {
         transform.Rotate(0, 100 * Time.deltaTime, 0);
@@ -22,14 +22,11 @@ public class Magnet : MonoBehaviour
     {
         if(other.tag == "Player")
         {
-            magnetCoin();
+            FindObjectOfType<AudioManage>().PlaySound("PickUpCoin");
+            coinDetector.SetActive(true);
+            Destroy(magnet);
+            gameManager.Magnet();
         }
     }
 
-    public void magnetCoin()
-    {
-        FindObjectOfType<AudioManage>().PlaySound("PickUpCoin");
-        coinDetector.SetActive(true);
-        Destroy(magnet);
-    }
 }

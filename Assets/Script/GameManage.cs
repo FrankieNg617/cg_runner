@@ -25,6 +25,9 @@ public class GameManage : MonoBehaviourPunCallbacks
     public Text finalScore;
     public Text highScore;
 
+    public float magnetDuration;
+    public GameObject coinDetector;
+
     private void Awake()
     {
         audioManage = FindObjectOfType<AudioManage>();
@@ -74,6 +77,17 @@ public class GameManage : MonoBehaviourPunCallbacks
             PlayerPrefs.SetInt("HighScore", numberOfCoins);
             highScore.text = numberOfCoins.ToString();
         }
+    }
+
+    public void Magnet()
+    {
+        StartCoroutine(magnetTimer(magnetDuration));
+    }
+
+    IEnumerator magnetTimer(float duration)
+    {
+        yield return new WaitForSeconds(duration);
+        coinDetector.SetActive(false);
     }
 
     void Update()
