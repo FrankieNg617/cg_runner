@@ -741,6 +741,34 @@ PrefabInstance:
       propertyPath: m_Name
       value: AudioManage
       objectReference: {fileID: 0}
+    - target: {fileID: 182117996656386775, guid: 99d2eb509b1042541858873d62caeb52, type: 3}
+      propertyPath: sounds.Array.size
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 182117996656386775, guid: 99d2eb509b1042541858873d62caeb52, type: 3}
+      propertyPath: sounds.Array.data[4].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 86caa2718fbff674487d38f969520d63, type: 3}
+    - target: {fileID: 182117996656386775, guid: 99d2eb509b1042541858873d62caeb52, type: 3}
+      propertyPath: sounds.Array.data[4].name
+      value: PickUpMagnet
+      objectReference: {fileID: 0}
+    - target: {fileID: 182117996656386775, guid: 99d2eb509b1042541858873d62caeb52, type: 3}
+      propertyPath: sounds.Array.data[5].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 59ce1df722ade2747b97167634214d31, type: 3}
+    - target: {fileID: 182117996656386775, guid: 99d2eb509b1042541858873d62caeb52, type: 3}
+      propertyPath: sounds.Array.data[5].name
+      value: PickUpMultiple
+      objectReference: {fileID: 0}
+    - target: {fileID: 182117996656386775, guid: 99d2eb509b1042541858873d62caeb52, type: 3}
+      propertyPath: sounds.Array.data[4].volume
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 182117996656386775, guid: 99d2eb509b1042541858873d62caeb52, type: 3}
+      propertyPath: sounds.Array.data[5].volume
+      value: 0.2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 99d2eb509b1042541858873d62caeb52, type: 3}
 --- !u!1001 &2898590762787352299

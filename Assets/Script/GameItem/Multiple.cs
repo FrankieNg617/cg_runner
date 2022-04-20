@@ -20,7 +20,7 @@ public class Multiple : MonoBehaviour
     {
         if(other.tag == "Player")
         {
-            FindObjectOfType<AudioManage>().PlaySound("PickUpCoin");
+            FindObjectOfType<AudioManage>().PlaySound("PickUpMultiple");
             Destroy(gameObject);
             gameManager.onMultiple();
         }

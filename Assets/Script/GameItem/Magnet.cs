@@ -21,7 +21,7 @@ public class Magnet : MonoBehaviour
     {
         if(other.tag == "Player")
         {
-            FindObjectOfType<AudioManage>().PlaySound("PickUpCoin");
+            FindObjectOfType<AudioManage>().PlaySound("PickUpMagnet");
             Destroy(magnet);
             gameManager.onMagnet();
         }

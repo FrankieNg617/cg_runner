@@ -119,7 +119,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8206050263927074956}
-  - component: {fileID: -1845994783440764961}
+  - component: {fileID: 5833497742842406824}
   m_Layer: 0
   m_Name: Magnet
   m_TagString: Untagged
@@ -143,7 +143,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &-1845994783440764961
+--- !u!114 &5833497742842406824
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -152,10 +152,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 8838999884359002678}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8f3b7b939773283449685fe1fdb1d7f6, type: 3}
+  m_Script: {fileID: 11500000, guid: 2b76f2610aebefc4bb8330cbf86e7e9d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  magnet: {fileID: 8838999884359002678}
+  item: {fileID: 8838999884359002678}
 --- !u!1 &9072331908546880771
 GameObject:
   m_ObjectHideFlags: 0

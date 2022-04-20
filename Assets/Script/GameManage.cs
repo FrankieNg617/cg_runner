@@ -95,7 +95,6 @@ public class GameManage : MonoBehaviourPunCallbacks
 
     public void onMultiple()
     {
-        Debug.Log("x2");
         isMultiple = true;
         StartCoroutine(multipleTimer(multipleDuration));
     }
