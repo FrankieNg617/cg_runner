@@ -7,6 +7,8 @@ TagManager:
   - Obstacle
   - GameManage
   - Static
+  - CoinDetector
+  - Magnet
   layers:
   - Default
   - TransparentFX
