@@ -4,6 +4,12 @@ using UnityEngine;
 
 public class Coin : MonoBehaviour
 {
+    CoinMagnet coinMagnetScript;
+
+    void Start()
+    {
+        coinMagnetScript = gameObject.GetComponent<CoinMagnet>();
+    }
 
     void Update()
     {
@@ -18,6 +24,11 @@ public class Coin : MonoBehaviour
             collectCoin();
         }
 
+        if(other.tag == "CoinDetector")
+        {
+            coinMagnetScript.enabled = true;
+
+        }
     }
 
     public void collectCoin()
