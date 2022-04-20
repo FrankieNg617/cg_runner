@@ -5,10 +5,12 @@ using UnityEngine;
 public class Coin : MonoBehaviour
 {
     CoinMagnet coinMagnetScript;
+    private GameManage gameManager;
 
     void Start()
     {
         coinMagnetScript = gameObject.GetComponent<CoinMagnet>();
+        gameManager = GameObject.FindWithTag("GameManage")?.GetComponent<GameManage>();
     }
 
     void Update()
@@ -31,6 +33,7 @@ public class Coin : MonoBehaviour
         }
     }
 
+
     public void collectCoin()
     {
         FindObjectOfType<AudioManage>().PlaySound("PickUpCoin");
@@ -41,6 +44,7 @@ public class Coin : MonoBehaviour
         }
         else
         {
+            gameManager.showFloatingText();
             GameManage.numberOfCoins += 2;
         }
         

@@ -30,6 +30,9 @@ public class GameManage : MonoBehaviourPunCallbacks
     public GameObject coinDetector;
     public static bool isMultiple = false;
 
+    public GameObject floatingTextPrefab;
+    public GameObject player;
+
     private void Awake()
     {
         audioManage = FindObjectOfType<AudioManage>();
@@ -103,6 +106,12 @@ public class GameManage : MonoBehaviourPunCallbacks
     {
         yield return new WaitForSeconds(duration);
         isMultiple = false;
+    }
+
+    public void showFloatingText()
+    {
+        Vector3 floatingTextPos = new Vector3(player.transform.position.x+1, player.transform.position.y+5, player.transform.position.z);
+        Instantiate(floatingTextPrefab, floatingTextPos, Quaternion.identity);
     }
 
     void Update()
