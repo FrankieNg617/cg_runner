@@ -1,8 +1,10 @@
 using System.Collections.Generic;
 using Script.Utilities;
 using UnityEngine;
+using Photon.Pun;
+using Photon.Realtime;
 
-public class TileManager : MonoBehaviour
+public class TileManager : MonoBehaviourPunCallbacks
 {
     public Tile[] tilePrefabs;
     public float spawnPos = 0;
@@ -20,6 +22,12 @@ public class TileManager : MonoBehaviour
 
     //  Only used for multiplayer purpose
     private List<Transform> networkCharacterTransforms;
+    private GameManage gameManage;
+
+    private void Awake()
+    {
+        gameManage = FindObjectOfType<GameManage>();
+    }
 
     public void Start()
     {
@@ -51,18 +59,21 @@ public class TileManager : MonoBehaviour
         }
         */
 
-        tilePool = ListUtility.Shuffle(tilePool);
+
+        //tilePool = ListUtility.Shuffle(tilePool);
         initialTileIndex = tilePool.IndexOf(initialTile);
     }
 
     private void InitializeTiles()
     {
+        if (gameManage.isMultiplayer && !PhotonNetwork.IsMasterClient) return;
         SpawnTile(initialTileIndex);
 
         for (int i = 1; i < numberOfTiles; i++)
         {
             SpawnTile(Random.Range(0, tilePool.Count));
         }
+
     }
 
     void Update()
@@ -81,7 +92,18 @@ public class TileManager : MonoBehaviour
         }
     }
 
+
+
     public void SpawnTile(int tileIndex)
+    {
+        if (!gameManage.isMultiplayer)
+            RPCSpawnTile(tileIndex);
+        else
+            photonView.RPC("RPCSpawnTile", RpcTarget.AllBuffered, tileIndex);
+    }
+
+    [PunRPC]
+    public void RPCSpawnTile(int tileIndex)
     {
         Tile tile = tilePool[tileIndex];
         tilePool.RemoveAt(tileIndex);
@@ -96,6 +118,15 @@ public class TileManager : MonoBehaviour
     }
 
     private void DeleteTile()
+    {
+        if (!gameManage.isMultiplayer)
+            RPCDeleteTile();
+        else
+            photonView.RPC("RPCDeleteTile", RpcTarget.AllBuffered);
+    }
+
+    [PunRPC]
+    private void RPCDeleteTile()
     {
         Tile tile = activeTiles[0];
         tile.gameObject.SetActive(false);
@@ -119,10 +150,9 @@ public class TileManager : MonoBehaviour
             {
                 networkCharacterTransforms.Add(players[i].transform);
             }
-            return GameObject.FindWithTag("Player").transform;
+            return transform;
         }
         Transform farthest = networkCharacterTransforms[0];
-        print(networkCharacterTransforms.Count);
         for (int i = 1; i < networkCharacterTransforms.Count; i++)
         {
             if (networkCharacterTransforms[i].position.z > farthest.position.z)

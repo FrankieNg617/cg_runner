@@ -12,7 +12,7 @@ public class GameManage : MonoBehaviourPunCallbacks
     public GameObject gameOverPanel;
     private AudioManage audioManage;
 
-    [SerializeField] bool isMultiplayer = false;
+    public bool isMultiplayer = false;
 
     [SerializeField] TextMeshProUGUI countDownTxt;
     [SerializeField] int countDownSeconds = 5;
@@ -72,7 +72,7 @@ public class GameManage : MonoBehaviourPunCallbacks
         gameOverPanel.SetActive(true);
 
         finalScore.text = numberOfCoins.ToString();
-        if(numberOfCoins > PlayerPrefs.GetInt("HighScore", 0))
+        if (numberOfCoins > PlayerPrefs.GetInt("HighScore", 0))
         {
             //Store the highest score into the system 
             PlayerPrefs.SetInt("HighScore", numberOfCoins);
