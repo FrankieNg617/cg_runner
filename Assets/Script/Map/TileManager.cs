@@ -4,26 +4,22 @@ using UnityEngine;
 
 public class TileManager : MonoBehaviour
 {
-    public GameObject[] tilePrefabs;
+    public Tile[] tilePrefabs;
     public float spawnPos = 0;
-    public Bounds tileBound;
-    public int numberOfTiles = 6; //no. of tiles want to be shown on the screen
+    // public Bounds tileBound;
+    public int numberOfTiles = 10; //no. of tiles want to be shown on the screen
 
     public Transform character;
 
     private int initialTileIndex;
 
-    private List<GameObject> activeTiles = new List<GameObject>();
+    private List<Tile> activeTiles = new List<Tile>();
 
-    private List<GameObject> tilePool = new List<GameObject>();
+    private List<Tile> tilePool = new List<Tile>();
 
 
     //  Only used for multiplayer purpose
     private List<Transform> networkCharacterTransforms;
-
-    private void Awake()
-    {
-    }
 
     public void Start()
     {
@@ -37,14 +33,15 @@ public class TileManager : MonoBehaviour
         {
             for (int i = 0; i < 3; i++)
             {
-                var t = Instantiate(tile);
-                t.SetActive(false);
+                Tile t = Instantiate(tile);
+                t.gameObject.SetActive(false);
                 tilePool.Add(t);
             }
         }
 
         var initialTile = tilePool[0];
 
+        /*
         tileBound = new Bounds(Vector3.zero, Vector3.zero);
 
         BoxCollider[] colliders = initialTile.GetComponentsInChildren<BoxCollider>();
@@ -52,6 +49,7 @@ public class TileManager : MonoBehaviour
         {
             tileBound.Encapsulate(collider.bounds);
         }
+        */
 
         tilePool = ListUtility.Shuffle(tilePool);
         initialTileIndex = tilePool.IndexOf(initialTile);
@@ -69,7 +67,14 @@ public class TileManager : MonoBehaviour
 
     void Update()
     {
-        if (GetFarthestCharacter().position.z - 35 > spawnPos - (numberOfTiles * tileBound.size.z))
+        float totalTileLength = 0;
+        foreach (var activeTile in activeTiles)
+        {
+            totalTileLength += activeTile.GetLength();
+        }
+
+
+        if (GetFarthestCharacter().position.z - 70 > spawnPos - totalTileLength)
         {
             SpawnTile(Random.Range(0, tilePool.Count));
             DeleteTile();    // delete the odd tile whenever a new tile has been created
@@ -78,25 +83,25 @@ public class TileManager : MonoBehaviour
 
     public void SpawnTile(int tileIndex)
     {
-        GameObject gameObject = tilePool[tileIndex];
+        Tile tile = tilePool[tileIndex];
         tilePool.RemoveAt(tileIndex);
 
-        activeTiles.Add(gameObject);
+        activeTiles.Add(tile);
         var objectTransform = transform;
-        gameObject.transform.position = objectTransform.forward * spawnPos;
-        gameObject.transform.rotation = objectTransform.rotation;
-        gameObject.SetActive(true);
+        tile.transform.position = objectTransform.forward * spawnPos;
+        tile.transform.rotation = objectTransform.rotation;
+        tile.gameObject.SetActive(true);
 
-        spawnPos += tileBound.size.z;
+        spawnPos += tile.GetLength();
     }
 
     private void DeleteTile()
     {
-        GameObject gameObject = activeTiles[0];
-        gameObject.SetActive(false);
+        Tile tile = activeTiles[0];
+        tile.gameObject.SetActive(false);
 
         activeTiles.RemoveAt(0);
-        tilePool.Add(gameObject);
+        tilePool.Add(tile);
 
         // Debug.Log($"TileManager: {gameObject.name}");
     }
