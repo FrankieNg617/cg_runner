@@ -17,6 +17,14 @@ public class TileManager : MonoBehaviour
 
     private List<GameObject> tilePool = new List<GameObject>();
 
+
+    //  Only used for multiplayer purpose
+    private List<Transform> networkCharacterTransforms;
+
+    private void Awake()
+    {
+    }
+
     public void Start()
     {
         InstantiateTiles();
@@ -25,10 +33,6 @@ public class TileManager : MonoBehaviour
 
     private void InstantiateTiles()
     {
-        // var initialTile = tilePrefabs[0];
-        // Instantiate(initialTile);
-        // initialTile.SetActive(false);
-
         foreach (var tile in tilePrefabs)
         {
             for (int i = 0; i < 3; i++)
@@ -65,13 +69,7 @@ public class TileManager : MonoBehaviour
 
     void Update()
     {
-        if (character == null)
-        {
-            character = GameObject.FindWithTag("Player")?.transform;
-            return;
-        }
-
-        if (character.position.z - 35 > spawnPos - (numberOfTiles * tileBound.size.z))
+        if (GetFarthestCharacter().position.z - 35 > spawnPos - (numberOfTiles * tileBound.size.z))
         {
             SpawnTile(Random.Range(0, tilePool.Count));
             DeleteTile();    // delete the odd tile whenever a new tile has been created
@@ -101,5 +99,32 @@ public class TileManager : MonoBehaviour
         tilePool.Add(gameObject);
 
         // Debug.Log($"TileManager: {gameObject.name}");
+    }
+
+    private Transform GetFarthestCharacter()
+    {
+        if (character != null) return character;
+
+        //  FIX: Hard-code approach to handle racing condition between network character init & tile manager Awake
+        if (networkCharacterTransforms == null || networkCharacterTransforms.Count == 0)
+        {
+            networkCharacterTransforms = new List<Transform>();
+            var players = FindObjectOfType<NetworkGameManager>()?.playersInGame;
+            for (int i = 0; players != null && i < players.Count; i++)
+            {
+                networkCharacterTransforms.Add(players[i].transform);
+            }
+            return GameObject.FindWithTag("Player").transform;
+        }
+        Transform farthest = networkCharacterTransforms[0];
+        print(networkCharacterTransforms.Count);
+        for (int i = 1; i < networkCharacterTransforms.Count; i++)
+        {
+            if (networkCharacterTransforms[i].position.z > farthest.position.z)
+            {
+                farthest = networkCharacterTransforms[i];
+            }
+        }
+        return farthest;
     }
 }

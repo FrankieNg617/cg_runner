@@ -11,11 +11,13 @@ public class NetworkGameManager : MonoBehaviourPunCallbacks
     GameManage gameManage;
 
     //STATE
+    public List<GameObject> playersInGame;
     int playersCntInGame = 0;
 
     private void Awake()
     {
         gameManage = FindObjectOfType<GameManage>();
+        playersInGame = new List<GameObject>();
     }
 
 
@@ -43,7 +45,7 @@ public class NetworkGameManager : MonoBehaviourPunCallbacks
     private void SpawnPlayer()
     {
         GameObject player = PhotonNetwork.Instantiate("NetworkCharacter", Vector3.zero, Quaternion.identity);
-
+        playersInGame.Add(player);
         player.GetComponent<NetworkCharacterControl>().photonView.RPC("Init", RpcTarget.All, PhotonNetwork.LocalPlayer);
     }
 }

@@ -14,7 +14,6 @@ public class NetworkCharacterControl : MonoBehaviourPunCallbacks
     {
         photonPlayer = player;
         id = player.ActorNumber;
-
         if (!photonView.IsMine)
         {
             GetComponent<CharacterControl>().enabled = false;
