@@ -41,6 +41,9 @@ MonoBehaviour:
   - OnJoinedGame
   - StartCountDown
   - Init
+  - RPCSpawnTile
+  - DeleteTile
+  - RPCDeleteTile
   DisableAutoOpenWizard: 1
   ShowSettings: 0
   DevRegionSetOnce: 1

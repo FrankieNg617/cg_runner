@@ -202,6 +202,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TileManager
       objectReference: {fileID: 0}
+    - target: {fileID: 3001867505521485375, guid: bf577246106ba754ba21c339d1aa7270, type: 3}
+      propertyPath: sceneViewId
+      value: 102
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bf577246106ba754ba21c339d1aa7270, type: 3}
 --- !u!1001 &206296909
