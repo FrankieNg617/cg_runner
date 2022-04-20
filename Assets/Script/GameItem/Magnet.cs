@@ -5,6 +5,7 @@ using UnityEngine;
 public class Magnet : MonoBehaviour
 {
     private GameManage gameManager;
+    public GameObject magnet;
 
     void Start()
     {
@@ -20,6 +21,8 @@ public class Magnet : MonoBehaviour
     {
         if(other.tag == "Player")
         {
+            FindObjectOfType<AudioManage>().PlaySound("PickUpCoin");
+            Destroy(magnet);
             gameManager.onMagnet();
         }
     }

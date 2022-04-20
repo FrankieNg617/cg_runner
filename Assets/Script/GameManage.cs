@@ -26,7 +26,6 @@ public class GameManage : MonoBehaviourPunCallbacks
     public Text highScore;
 
     public float magnetDuration;
-    public GameObject magnet;
     public GameObject coinDetector;
 
     private void Awake()
@@ -82,9 +81,7 @@ public class GameManage : MonoBehaviourPunCallbacks
 
     public void onMagnet()
     {
-        FindObjectOfType<AudioManage>().PlaySound("PickUpCoin");
         coinDetector.SetActive(true);
-        Destroy(magnet);
         StartCoroutine(magnetTimer(magnetDuration));
     }
 
