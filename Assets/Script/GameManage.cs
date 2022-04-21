@@ -39,6 +39,7 @@ public class GameManage : MonoBehaviourPunCallbacks
     private void Awake()
     {
         GameObject.FindGameObjectWithTag("WelcomeBGM").GetComponent<AudioSource>().Stop();
+
         audioManage = FindObjectOfType<AudioManage>();
         numberOfCoins = 0;
         highScore.text = PlayerPrefs.GetInt("HighScore", 0).ToString();
@@ -92,21 +93,21 @@ public class GameManage : MonoBehaviourPunCallbacks
     {
         if (coinDetector == null) coinDetector = GameObject.FindWithTag("Player").GetComponent<CharacterControl>().coinDetector;
         coinDetector.SetActive(true);
-        magnetImg.color = new Color(1f,1f,1f,1f);
+        magnetImg.color = new Color(1f, 1f, 1f, 1f);
         StartCoroutine(magnetTimer(magnetDuration));
     }
 
     IEnumerator magnetTimer(float duration)
     {
         yield return new WaitForSeconds(duration);
-        magnetImg.color = new Color(1f,1f,1f,0.4f);
+        magnetImg.color = new Color(1f, 1f, 1f, 0.4f);
         coinDetector.SetActive(false);
     }
 
     public void onMultiple()
     {
         isMultiple = true;
-        multipleImg.color = new Color(1f,1f,1f,1f);
+        multipleImg.color = new Color(1f, 1f, 1f, 1f);
         StartCoroutine(multipleTimer(multipleDuration));
     }
 
@@ -114,7 +115,7 @@ public class GameManage : MonoBehaviourPunCallbacks
     {
         yield return new WaitForSeconds(duration);
         isMultiple = false;
-        multipleImg.color = new Color(1f,1f,1f,0.4f);
+        multipleImg.color = new Color(1f, 1f, 1f, 0.4f);
     }
 
     public void showFloatingText()

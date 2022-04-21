@@ -25,10 +25,8 @@ public class NetworkManager : MonoBehaviourPunCallbacks
 
     private void Start()
     {
-        if (!PhotonNetwork.IsConnected)
-        {
-            PhotonNetwork.ConnectUsingSettings();
-        }
+        print("Connect using setting");
+        PhotonNetwork.ConnectUsingSettings();
     }
 
     public void CreateRoom(string roomName)
