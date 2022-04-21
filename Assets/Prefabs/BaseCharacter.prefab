@@ -1461,8 +1461,8 @@ MonoBehaviour:
   horizontalSpeed: 10
   acceleration: 30
   laneDistance: 5
-  jumpForce: 25
-  gravity: -60
+  jumpForce: 20
+  gravity: -50
   rollInvincibleSecond: 0.5
   isDebugging: 0
 --- !u!143 &6246794723734617197
