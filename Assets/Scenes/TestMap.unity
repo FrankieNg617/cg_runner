@@ -1017,7 +1017,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   curveX: 0
-  curveY: -0.2
+  curveY: -0.1
 --- !u!95 &963194232
 Animator:
   serializedVersion: 4
@@ -1453,7 +1453,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2898590762294724946, guid: bf577246106ba754ba21c339d1aa7270, type: 3}
       propertyPath: tilePrefabs.Array.size
-      value: 7
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 2898590762294724946, guid: bf577246106ba754ba21c339d1aa7270, type: 3}
       propertyPath: tilePrefabs.Array.data[0]
