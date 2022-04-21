@@ -29,6 +29,7 @@ public class GameManage : MonoBehaviourPunCallbacks
     [SerializeField] float multipleDuration;
     [SerializeField] GameObject coinDetector;
     public static bool isMultiple = false;
+    public static bool isMagnet = false;
 
     [SerializeField] GameObject floatingTextPrefab;
     [SerializeField] GameObject player;
@@ -36,9 +37,16 @@ public class GameManage : MonoBehaviourPunCallbacks
     [SerializeField] Image magnetImg;
     [SerializeField] Image multipleImg;
 
+    [SerializeField] GameObject magnetTimerBar;
+    [SerializeField] GameObject multipleTimerBar;
+
     private void Awake()
     {
-        GameObject.FindGameObjectWithTag("WelcomeBGM").GetComponent<AudioSource>().Stop();
+        GameObject bgm = GameObject.FindGameObjectWithTag("WelcomeBGM");
+        if(bgm != null)
+        {
+            bgm.GetComponent<AudioSource>().Stop();
+        }
 
         audioManage = FindObjectOfType<AudioManage>();
         numberOfCoins = 0;
@@ -91,9 +99,15 @@ public class GameManage : MonoBehaviourPunCallbacks
 
     public void onMagnet()
     {
+        if(isMagnet) return;  //disallow the double pickup of magnet
         if (coinDetector == null) coinDetector = GameObject.FindWithTag("Player").GetComponent<CharacterControl>().coinDetector;
+
+        isMagnet = true;
         coinDetector.SetActive(true);
         magnetImg.color = new Color(1f, 1f, 1f, 1f);
+        magnetTimerBar.SetActive(true);
+        magnetTimerBar.GetComponent<TimerBarManage>().startTimer();
+
         StartCoroutine(magnetTimer(magnetDuration));
     }
 
@@ -101,13 +115,19 @@ public class GameManage : MonoBehaviourPunCallbacks
     {
         yield return new WaitForSeconds(duration);
         magnetImg.color = new Color(1f, 1f, 1f, 0.4f);
+        magnetTimerBar.SetActive(false);
         coinDetector.SetActive(false);
     }
 
     public void onMultiple()
     {
+        if(isMultiple) return;  //disallow the double pickup of multiple
+
         isMultiple = true;
         multipleImg.color = new Color(1f, 1f, 1f, 1f);
+        multipleTimerBar.SetActive(true);
+        multipleTimerBar.GetComponent<TimerBarManage>().startTimer();
+
         StartCoroutine(multipleTimer(multipleDuration));
     }
 
@@ -116,6 +136,7 @@ public class GameManage : MonoBehaviourPunCallbacks
         yield return new WaitForSeconds(duration);
         isMultiple = false;
         multipleImg.color = new Color(1f, 1f, 1f, 0.4f);
+        multipleTimerBar.SetActive(false);
     }
 
     public void showFloatingText()
