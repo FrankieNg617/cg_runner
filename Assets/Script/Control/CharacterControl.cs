@@ -86,6 +86,7 @@ public class CharacterControl : MonoBehaviour
 
         if (desiredLane != 0)
             targetPos += desiredLane * Vector3.right * laneDistance;
+            
 
         if (Mathf.Abs(transform.position.x - targetPos.x) > 0.1f)
         {
@@ -102,6 +103,7 @@ public class CharacterControl : MonoBehaviour
             anim.SetFloat("xDirection", Mathf.Sign(direction.x) / 2);
         else
             anim.SetFloat("xDirection", 0f);
+
     }
 
     private void HandleJump()
@@ -112,6 +114,7 @@ public class CharacterControl : MonoBehaviour
             {
                 direction.y = jumpForce;
                 anim.SetTrigger("Jump");
+                FindObjectOfType<AudioManage>().PlaySound("Jump");
                 jumpAction = false;
             }
             else
@@ -136,6 +139,7 @@ public class CharacterControl : MonoBehaviour
     private IEnumerator Roll()
     {
         anim.SetTrigger("Roll");
+        FindObjectOfType<AudioManage>().PlaySound("Roll");
         controller.height /= 3;
         controller.center = new Vector3(controller.center.x, controller.center.y / 3, controller.center.z);
         yield return new WaitForSeconds(rollInvincibleSecond);
