@@ -114,6 +114,7 @@ public class GameManage : MonoBehaviourPunCallbacks
     IEnumerator magnetTimer(float duration)
     {
         yield return new WaitForSeconds(duration);
+        isMagnet = false;
         magnetImg.color = new Color(1f, 1f, 1f, 0.4f);
         magnetTimerBar.SetActive(false);
         coinDetector.SetActive(false);
