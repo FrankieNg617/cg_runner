@@ -24,6 +24,8 @@ public class TileManager : MonoBehaviourPunCallbacks
     private List<Transform> networkCharacterTransforms;
     private GameManage gameManage;
 
+    private bool popTile = false;
+
     private void Awake()
     {
         gameManage = FindObjectOfType<GameManage>();
@@ -88,7 +90,15 @@ public class TileManager : MonoBehaviourPunCallbacks
         if (GetFarthestCharacter().position.z - (totalTileLength * 0.25) > spawnPos - totalTileLength)
         {
             SpawnTile(Random.Range(0, tilePool.Count));
-            DeleteTile();    // delete the odd tile whenever a new tile has been created
+
+            if (popTile)
+            {
+                DeleteTile(); // delete the odd tile whenever a new tile has been created
+            }
+            else
+            {
+                popTile = true;
+            }
         }
     }
 
