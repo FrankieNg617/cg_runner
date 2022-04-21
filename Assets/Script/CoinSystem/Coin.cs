@@ -21,12 +21,12 @@ public class Coin : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.tag == "Player")
+        if (other.tag == "Player")
         {
             collectCoin();
         }
 
-        if(other.tag == "CoinDetector")
+        if (other.tag == "CoinDetector")
         {
             coinMagnetScript.enabled = true;
 
@@ -37,8 +37,8 @@ public class Coin : MonoBehaviour
     public void collectCoin()
     {
         FindObjectOfType<AudioManage>().PlaySound("PickUpCoin");
-        
-        if(!GameManage.isMultiple)
+
+        if (!GameManage.isMultiple)
         {
             GameManage.numberOfCoins += 1;
         }
@@ -47,7 +47,7 @@ public class Coin : MonoBehaviour
             gameManager.showFloatingText();
             GameManage.numberOfCoins += 2;
         }
-        
+
         Destroy(gameObject);
     }
 

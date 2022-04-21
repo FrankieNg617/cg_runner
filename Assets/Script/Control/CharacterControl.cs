@@ -26,6 +26,7 @@ public class CharacterControl : MonoBehaviour
     [SerializeField] float gravity = -20;
 
     [SerializeField] float rollInvincibleSecond = 0.5f;
+    [SerializeField] bool isDebugging;
 
     //  STATE
     private bool enableMovement = false;
@@ -159,7 +160,7 @@ public class CharacterControl : MonoBehaviour
     // Collision
     private void OnControllerColliderHit(ControllerColliderHit hit)
     {
-        if (hit.gameObject.tag == "Static") return;
+        if (hit.gameObject.tag == "Static" || isDebugging) return;
 
         HandleSideCollision();
 

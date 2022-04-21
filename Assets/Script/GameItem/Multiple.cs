@@ -13,12 +13,12 @@ public class Multiple : MonoBehaviour
 
     void Update()
     {
-        transform.Rotate(0, 100 * Time.deltaTime, 0);
+        //transform.Rotate(0, 100 * Time.deltaTime, 0);
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.tag == "Player")
+        if (other.tag == "Player")
         {
             FindObjectOfType<AudioManage>().PlaySound("PickUpMultiple");
             Destroy(gameObject);
