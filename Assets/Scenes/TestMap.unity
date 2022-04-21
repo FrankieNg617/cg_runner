@@ -1740,7 +1740,19 @@ PrefabInstance:
       value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 2898590762294724946, guid: bf577246106ba754ba21c339d1aa7270, type: 3}
+<<<<<<< Updated upstream
       propertyPath: tilePrefabs.Array.data[1]
+=======
+      propertyPath: tilePrefabs.Array.data[0]
+      value: 
+      objectReference: {fileID: 1324342443831375865, guid: 04ee7efd605079f4ca5e197130802cde, type: 3}
+    - target: {fileID: 2898590762294724946, guid: bf577246106ba754ba21c339d1aa7270, type: 3}
+      propertyPath: tilePrefabs.Array.data[3]
+      value: 
+      objectReference: {fileID: 6295413392901851432, guid: a41d63e433e06a340828b2297c3bba3a, type: 3}
+    - target: {fileID: 2898590762294724946, guid: bf577246106ba754ba21c339d1aa7270, type: 3}
+      propertyPath: tilePrefabs.Array.data[6]
+>>>>>>> Stashed changes
       value: 
       objectReference: {fileID: 6295413392901851432, guid: 44022b20bdcd92344a410b182eaedbc8, type: 3}
     - target: {fileID: 2898590762294724946, guid: bf577246106ba754ba21c339d1aa7270, type: 3}
