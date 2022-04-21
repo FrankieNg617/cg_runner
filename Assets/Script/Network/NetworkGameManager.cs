@@ -44,7 +44,11 @@ public class NetworkGameManager : MonoBehaviourPunCallbacks
 
     private void SpawnPlayer()
     {
-        GameObject player = PhotonNetwork.Instantiate("NetworkCharacter", Vector3.zero, Quaternion.identity);
+        string characterID = PhotonNetwork.LocalPlayer.CustomProperties["characterID"] as string;
+        CharaterScriptable characterDictionary = Resources.Load<CharaterScriptable>("CharacterDictionary");
+        var characterPrefab = characterDictionary.GetCharacterPrefabByID(characterID).prefab;
+
+        GameObject player = PhotonNetwork.Instantiate(characterPrefab.name, Vector3.zero, Quaternion.identity);
         playersInGame.Add(player);
         player.GetComponent<NetworkCharacterControl>().photonView.RPC("Init", RpcTarget.All, PhotonNetwork.LocalPlayer);
     }

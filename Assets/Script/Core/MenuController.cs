@@ -122,7 +122,6 @@ public class MenuController : MonoBehaviourPunCallbacks
                 object[] argv = { player.ActorNumber - 1, player.NickName };
                 lobby.photonView.RPC("AddPlayer", RpcTarget.AllBuffered, argv);
 
-
                 lobby.SetCharacter(i, (string)player.CustomProperties["characterID"]);
                 return;
             }
