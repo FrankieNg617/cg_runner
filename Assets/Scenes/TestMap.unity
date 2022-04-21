@@ -1737,40 +1737,16 @@ PrefabInstance:
       objectReference: {fileID: 1899436706}
     - target: {fileID: 2898590762294724946, guid: bf577246106ba754ba21c339d1aa7270, type: 3}
       propertyPath: tilePrefabs.Array.size
-      value: 7
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 2898590762294724946, guid: bf577246106ba754ba21c339d1aa7270, type: 3}
-<<<<<<< Updated upstream
-      propertyPath: tilePrefabs.Array.data[1]
-=======
-      propertyPath: tilePrefabs.Array.data[0]
+      propertyPath: tilePrefabs.Array.data[7]
       value: 
-      objectReference: {fileID: 1324342443831375865, guid: 04ee7efd605079f4ca5e197130802cde, type: 3}
+      objectReference: {fileID: 1324342443831375865, guid: 929d0cfbace73c4419953250d2529f3a, type: 3}
     - target: {fileID: 2898590762294724946, guid: bf577246106ba754ba21c339d1aa7270, type: 3}
-      propertyPath: tilePrefabs.Array.data[3]
+      propertyPath: tilePrefabs.Array.data[8]
       value: 
       objectReference: {fileID: 6295413392901851432, guid: a41d63e433e06a340828b2297c3bba3a, type: 3}
-    - target: {fileID: 2898590762294724946, guid: bf577246106ba754ba21c339d1aa7270, type: 3}
-      propertyPath: tilePrefabs.Array.data[6]
->>>>>>> Stashed changes
-      value: 
-      objectReference: {fileID: 6295413392901851432, guid: 44022b20bdcd92344a410b182eaedbc8, type: 3}
-    - target: {fileID: 2898590762294724946, guid: bf577246106ba754ba21c339d1aa7270, type: 3}
-      propertyPath: tilePrefabs.Array.data[2]
-      value: 
-      objectReference: {fileID: 6295413392901851432, guid: 7f5f44e812d7f1742b094a24a15bd423, type: 3}
-    - target: {fileID: 2898590762294724946, guid: bf577246106ba754ba21c339d1aa7270, type: 3}
-      propertyPath: tilePrefabs.Array.data[3]
-      value: 
-      objectReference: {fileID: 6295413392901851432, guid: 5b74e1d040460204d8a22933a15bafce, type: 3}
-    - target: {fileID: 2898590762294724946, guid: bf577246106ba754ba21c339d1aa7270, type: 3}
-      propertyPath: tilePrefabs.Array.data[5]
-      value: 
-      objectReference: {fileID: 2791592408850118327, guid: aa3258cd1cb20514bab5ff7326c4863c, type: 3}
-    - target: {fileID: 2898590762294724946, guid: bf577246106ba754ba21c339d1aa7270, type: 3}
-      propertyPath: tilePrefabs.Array.data[6]
-      value: 
-      objectReference: {fileID: 917918377906622023, guid: 12c9dde7c633f29498a5873e0509eedf, type: 3}
     - target: {fileID: 2898590762294724947, guid: bf577246106ba754ba21c339d1aa7270, type: 3}
       propertyPath: m_Name
       value: TileManager
