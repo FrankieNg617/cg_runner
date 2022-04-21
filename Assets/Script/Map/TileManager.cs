@@ -87,7 +87,7 @@ public class TileManager : MonoBehaviourPunCallbacks
         }
 
 
-        if (GetFarthestCharacter().position.z - (totalTileLength * 0.25) > spawnPos - totalTileLength)
+        if (GetFarthestCharacter().position.z - (totalTileLength * 0.25f) > spawnPos - totalTileLength)
         {
             SpawnTile(Random.Range(0, tilePool.Count));
 
