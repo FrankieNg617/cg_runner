@@ -19,10 +19,10 @@ public class Magnet : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.tag == "Player")
+        if (other.tag == "Player")
         {
             FindObjectOfType<AudioManage>().PlaySound("PickUpMagnet");
-            Destroy(magnet);
+            magnet.SetActive(false);
             gameManager.onMagnet();
         }
     }

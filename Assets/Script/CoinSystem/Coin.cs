@@ -48,7 +48,7 @@ public class Coin : MonoBehaviour
             GameManage.numberOfCoins += 2;
         }
 
-        Destroy(gameObject);
+        gameObject.SetActive(false);
     }
 
 }

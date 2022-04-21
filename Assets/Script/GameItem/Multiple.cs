@@ -21,7 +21,7 @@ public class Multiple : MonoBehaviour
         if (other.tag == "Player")
         {
             FindObjectOfType<AudioManage>().PlaySound("PickUpMultiple");
-            Destroy(gameObject);
+            gameObject.SetActive(false);
             gameManager.onMultiple();
         }
     }

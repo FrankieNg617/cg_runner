@@ -122,7 +122,7 @@ public class TileManager : MonoBehaviourPunCallbacks
         var objectTransform = transform;
         tile.transform.position = objectTransform.forward * spawnPos;
         tile.transform.rotation = objectTransform.rotation;
-        tile.gameObject.SetActive(true);
+        tile.gameObject.SetActiveRecursively(true);
 
         spawnPos += tile.GetLength();
     }
