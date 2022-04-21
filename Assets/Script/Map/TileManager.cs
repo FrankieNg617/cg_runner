@@ -85,7 +85,7 @@ public class TileManager : MonoBehaviourPunCallbacks
         }
 
 
-        if (GetFarthestCharacter().position.z - 70 > spawnPos - totalTileLength)
+        if (GetFarthestCharacter().position.z - (totalTileLength * 0.25) > spawnPos - totalTileLength)
         {
             SpawnTile(Random.Range(0, tilePool.Count));
             DeleteTile();    // delete the odd tile whenever a new tile has been created

@@ -73,3 +73,6 @@ crashlytics-build.properties
 
 .vscode/
 .idea/
+.plastic/plastic.changes
+
+.plastic/plastic.wktree
