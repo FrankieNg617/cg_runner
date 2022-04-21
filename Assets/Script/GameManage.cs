@@ -29,6 +29,7 @@ public class GameManage : MonoBehaviourPunCallbacks
     [SerializeField] float multipleDuration;
     [SerializeField] GameObject coinDetector;
     public static bool isMultiple = false;
+    public static bool isMagnet = false;
 
     [SerializeField] GameObject floatingTextPrefab;
     [SerializeField] GameObject player;
@@ -36,10 +37,22 @@ public class GameManage : MonoBehaviourPunCallbacks
     [SerializeField] Image magnetImg;
     [SerializeField] Image multipleImg;
 
+    [SerializeField] GameObject magnetTimerBar;
+    [SerializeField] GameObject multipleTimerBar;
+
     private void Awake()
     {
+<<<<<<< Updated upstream
         GameObject.FindGameObjectWithTag("WelcomeBGM").GetComponent<AudioSource>().Stop();
 
+=======
+        GameObject bgm = GameObject.FindGameObjectWithTag("WelcomeBGM");
+        if(bgm != null)
+        {
+            bgm.GetComponent<AudioSource>().Stop();
+        }
+           
+>>>>>>> Stashed changes
         audioManage = FindObjectOfType<AudioManage>();
         numberOfCoins = 0;
         highScore.text = PlayerPrefs.GetInt("HighScore", 0).ToString();
@@ -91,23 +104,48 @@ public class GameManage : MonoBehaviourPunCallbacks
 
     public void onMagnet()
     {
+        if(isMagnet) return;  //disallow the double pickup of magnet
         if (coinDetector == null) coinDetector = GameObject.FindWithTag("Player").GetComponent<CharacterControl>().coinDetector;
+
+        isMagnet = true;
         coinDetector.SetActive(true);
+<<<<<<< Updated upstream
         magnetImg.color = new Color(1f, 1f, 1f, 1f);
+=======
+        magnetTimerBar.SetActive(true);
+        magnetTimerBar.GetComponent<TimerManage>().startTimer();
+
+        magnetImg.color = new Color(1f,1f,1f,1f);
+>>>>>>> Stashed changes
         StartCoroutine(magnetTimer(magnetDuration));
     }
 
     IEnumerator magnetTimer(float duration)
     {
         yield return new WaitForSeconds(duration);
+<<<<<<< Updated upstream
         magnetImg.color = new Color(1f, 1f, 1f, 0.4f);
+=======
+        isMagnet = false;
+        magnetImg.color = new Color(1f,1f,1f,0.4f);
+        magnetTimerBar.SetActive(false);
+>>>>>>> Stashed changes
         coinDetector.SetActive(false);
     }
 
     public void onMultiple()
     {
+        if(isMultiple) return;  //disallow the double pickup of multiple
+
         isMultiple = true;
+<<<<<<< Updated upstream
         multipleImg.color = new Color(1f, 1f, 1f, 1f);
+=======
+        multipleTimerBar.SetActive(true);
+        multipleTimerBar.GetComponent<TimerManage>().startTimer();
+
+        multipleImg.color = new Color(1f,1f,1f,1f);
+>>>>>>> Stashed changes
         StartCoroutine(multipleTimer(multipleDuration));
     }
 
@@ -115,7 +153,12 @@ public class GameManage : MonoBehaviourPunCallbacks
     {
         yield return new WaitForSeconds(duration);
         isMultiple = false;
+<<<<<<< Updated upstream
         multipleImg.color = new Color(1f, 1f, 1f, 0.4f);
+=======
+        multipleImg.color = new Color(1f,1f,1f,0.4f);
+        multipleTimerBar.SetActive(false);
+>>>>>>> Stashed changes
     }
 
     public void showFloatingText()
