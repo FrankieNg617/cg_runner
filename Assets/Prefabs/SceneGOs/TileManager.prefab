@@ -47,11 +47,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tilePrefabs:
   - {fileID: 1324342443831375865, guid: 04ee7efd605079f4ca5e197130802cde, type: 3}
-  - {fileID: 1324342443831375865, guid: 04ee7efd605079f4ca5e197130802cde, type: 3}
-  - {fileID: 2021671589417991296, guid: 9d87ffeeb96012d4996a8893028dcbf5, type: 3}
-  - {fileID: 2021671589417991296, guid: 9d87ffeeb96012d4996a8893028dcbf5, type: 3}
-  - {fileID: 2021671589417991296, guid: 9d87ffeeb96012d4996a8893028dcbf5, type: 3}
+  - {fileID: 6295413392901851432, guid: 44022b20bdcd92344a410b182eaedbc8, type: 3}
+  - {fileID: 6295413392901851432, guid: 7f5f44e812d7f1742b094a24a15bd423, type: 3}
   - {fileID: 6295413392901851432, guid: 5b74e1d040460204d8a22933a15bafce, type: 3}
+  - {fileID: 2021671589417991296, guid: 9d87ffeeb96012d4996a8893028dcbf5, type: 3}
+  - {fileID: 2791592408850118327, guid: aa3258cd1cb20514bab5ff7326c4863c, type: 3}
+  - {fileID: 917918377906622023, guid: 12c9dde7c633f29498a5873e0509eedf, type: 3}
   spawnPos: 0
   numberOfTiles: 6
   character: {fileID: 0}
@@ -74,6 +75,6 @@ MonoBehaviour:
   OwnershipTransfer: 0
   observableSearch: 2
   ObservedComponents: []
-  sceneViewId: 0
+  sceneViewId: 1
   InstantiationId: 0
   isRuntimeInstantiated: 0
