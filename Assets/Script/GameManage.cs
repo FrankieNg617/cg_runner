@@ -29,6 +29,7 @@ public class GameManage : MonoBehaviourPunCallbacks
     [SerializeField] float multipleDuration;
     [SerializeField] GameObject coinDetector;
     public static bool isMultiple = false;
+    public static bool isMagnet = false;
 
     [SerializeField] GameObject floatingTextPrefab;
     [SerializeField] GameObject player;
@@ -38,7 +39,11 @@ public class GameManage : MonoBehaviourPunCallbacks
 
     private void Awake()
     {
-        GameObject.FindGameObjectWithTag("WelcomeBGM").GetComponent<AudioSource>().Stop();
+        GameObject bgm = GameObject.FindGameObjectWithTag("WelcomeBGM");
+        if(bgm != null)
+        {
+            bgm.GetComponent<AudioSource>().Stop();
+        }
 
         audioManage = FindObjectOfType<AudioManage>();
         numberOfCoins = 0;
@@ -91,7 +96,10 @@ public class GameManage : MonoBehaviourPunCallbacks
 
     public void onMagnet()
     {
+        if(isMagnet) return;  //disallow the double pickup of magnet
         if (coinDetector == null) coinDetector = GameObject.FindWithTag("Player").GetComponent<CharacterControl>().coinDetector;
+
+        isMagnet = true;
         coinDetector.SetActive(true);
         magnetImg.color = new Color(1f, 1f, 1f, 1f);
         StartCoroutine(magnetTimer(magnetDuration));
@@ -106,6 +114,8 @@ public class GameManage : MonoBehaviourPunCallbacks
 
     public void onMultiple()
     {
+        if(isMultiple) return;  //disallow the double pickup of multiple
+
         isMultiple = true;
         multipleImg.color = new Color(1f, 1f, 1f, 1f);
         StartCoroutine(multipleTimer(multipleDuration));
