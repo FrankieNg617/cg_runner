@@ -4,6 +4,7 @@ using TMPro;
 using UnityEngine;
 using Photon.Pun;
 using Photon.Realtime;
+using UnityEngine.UI;
 
 public class LobbyCharacterUi : MonoBehaviour
 {
@@ -12,6 +13,7 @@ public class LobbyCharacterUi : MonoBehaviour
     [SerializeField] GameObject previewCharacterParent;
 
     [SerializeField] TextMeshProUGUI nameField;
+
 
     private GameObject curCharacter;
 
