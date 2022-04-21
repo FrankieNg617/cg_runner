@@ -5,34 +5,26 @@ using TMPro;
 using Photon.Pun;
 using Photon.Realtime;
 
-public class LobbyUI : MonoBehaviour
+public class LobbyUI : MonoBehaviourPunCallbacks
 {
     [SerializeField]
     TextMeshProUGUI roomNameField;
 
-    //  TMP: Only used character names
-    //  TODO: Change entire texture character
-    [SerializeField] List<GameObject> characters;
+    [SerializeField] List<LobbyCharacterUi> charactersUI;
 
     public void Init()
     {
-        foreach (var character in characters)
-        {
-            character.SetActive(false);
-        }
-        roomNameField.text = PhotonNetwork.CurrentRoom.Name;
+        roomNameField.text = PhotonNetwork.CurrentRoom != null ? PhotonNetwork.CurrentRoom.Name : "";
     }
 
-    public void AddPlayer(string playerName)
+    [PunRPC]
+    public void AddPlayer(int position, string playerName)
     {
-        foreach (var character in characters)
-        {
-            if (!character.activeInHierarchy)
-            {
-                character.GetComponentInChildren<TextMeshProUGUI>().text = playerName;
-                character.SetActive(true);
-                break;
-            }
-        }
+        charactersUI[position].SetName(playerName);
+    }
+
+    public void SetCharacter(int position, string id)
+    {
+        charactersUI[position].SetCharacter(id);
     }
 }

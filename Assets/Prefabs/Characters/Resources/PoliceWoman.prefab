@@ -7,9 +7,33 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1929834418945187127, guid: c13294a688a28da4995395b6a5e168dd, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1931231535375356815, guid: c13294a688a28da4995395b6a5e168dd, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1931273471248148337, guid: c13294a688a28da4995395b6a5e168dd, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1931533748595762115, guid: c13294a688a28da4995395b6a5e168dd, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1931814658597133497, guid: c13294a688a28da4995395b6a5e168dd, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1931837273750897695, guid: c13294a688a28da4995395b6a5e168dd, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6246794723734617192, guid: c13294a688a28da4995395b6a5e168dd, type: 3}
       propertyPath: m_Name
-      value: FemaleNoFace 1
+      value: PoliceWoman
       objectReference: {fileID: 0}
     - target: {fileID: 6246794723734617199, guid: c13294a688a28da4995395b6a5e168dd, type: 3}
       propertyPath: m_RootOrder
@@ -59,6 +83,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6247695278147959338, guid: c13294a688a28da4995395b6a5e168dd, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6247962541175787458, guid: c13294a688a28da4995395b6a5e168dd, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -73,7 +101,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6248597066766531572, guid: c13294a688a28da4995395b6a5e168dd, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c13294a688a28da4995395b6a5e168dd, type: 3}

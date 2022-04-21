@@ -7,17 +7,9 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1931273471248148337, guid: c13294a688a28da4995395b6a5e168dd, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1931814658597133497, guid: c13294a688a28da4995395b6a5e168dd, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 6246794723734617192, guid: c13294a688a28da4995395b6a5e168dd, type: 3}
       propertyPath: m_Name
-      value: SuitBusinessMan 1
+      value: NoFaceMan
       objectReference: {fileID: 0}
     - target: {fileID: 6246794723734617199, guid: c13294a688a28da4995395b6a5e168dd, type: 3}
       propertyPath: m_RootOrder
@@ -69,7 +61,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6247695278147959338, guid: c13294a688a28da4995395b6a5e168dd, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6247962541175787458, guid: c13294a688a28da4995395b6a5e168dd, type: 3}
       propertyPath: m_IsActive
