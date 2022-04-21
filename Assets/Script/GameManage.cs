@@ -25,13 +25,16 @@ public class GameManage : MonoBehaviourPunCallbacks
     public Text finalScore;
     public Text highScore;
 
-    public float magnetDuration;
-    public float multipleDuration;
-    public GameObject coinDetector;
+    [SerializeField] float magnetDuration;
+    [SerializeField] float multipleDuration;
+    [SerializeField] GameObject coinDetector;
     public static bool isMultiple = false;
 
-    public GameObject floatingTextPrefab;
-    public GameObject player;
+    [SerializeField] GameObject floatingTextPrefab;
+    [SerializeField] GameObject player;
+
+    [SerializeField] Image magnetImg;
+    [SerializeField] Image multipleImg;
 
     private void Awake()
     {
@@ -87,18 +90,21 @@ public class GameManage : MonoBehaviourPunCallbacks
     public void onMagnet()
     {
         coinDetector.SetActive(true);
+        magnetImg.color = new Color(1f,1f,1f,1f);
         StartCoroutine(magnetTimer(magnetDuration));
     }
 
     IEnumerator magnetTimer(float duration)
     {
         yield return new WaitForSeconds(duration);
+        magnetImg.color = new Color(1f,1f,1f,0.4f);
         coinDetector.SetActive(false);
     }
 
     public void onMultiple()
     {
         isMultiple = true;
+        multipleImg.color = new Color(1f,1f,1f,1f);
         StartCoroutine(multipleTimer(multipleDuration));
     }
 
@@ -106,6 +112,7 @@ public class GameManage : MonoBehaviourPunCallbacks
     {
         yield return new WaitForSeconds(duration);
         isMultiple = false;
+        multipleImg.color = new Color(1f,1f,1f,0.4f);
     }
 
     public void showFloatingText()
