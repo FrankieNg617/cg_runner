@@ -42,6 +42,7 @@ public class CharacterControl : MonoBehaviour
     void Awake()
     {
         controller = GetComponent<CharacterController>();
+        if (gameManager == null) return;
         gameManager = GameObject.FindWithTag("GameManage")?.GetComponent<GameManage>();
         gameManager.onGameStart += enableControl;
         gameManager.onGameOver += () => enableMovement = false;
@@ -56,12 +57,12 @@ public class CharacterControl : MonoBehaviour
 
     private void OnEnable()
     {
-        gameplay.Enable();
+        if (gameManager != null) gameplay.Enable();
     }
 
     private void OnDisable()
     {
-        gameplay.Disable();
+        if (gameManager != null) gameplay.Disable();
     }
 
     void Update()

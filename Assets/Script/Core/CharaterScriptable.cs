@@ -6,8 +6,6 @@ using UnityEngine.UI;
 [CreateAssetMenu(fileName = "CharaterScriptable", menuName = "cg_runner/Character Dictionary", order = 0)]
 public class CharaterScriptable : ScriptableObject
 {
-    [SerializeField] RawImage baseIcon;
-
     [Header("List of character")]
     [SerializeField] List<CharacterData> Characters;
 
@@ -15,7 +13,24 @@ public class CharaterScriptable : ScriptableObject
     public struct CharacterData
     {
         public string id;
-        public GameObject characterPrefab;
+        public GameObject prefab;
         public RenderTexture textureIcon;
+    }
+
+    public List<CharacterData> GetAllCharactersData()
+    {
+        return Characters;
+    }
+
+    public CharacterData GetCharacterPrefabByID(string id)
+    {
+        foreach (var data in Characters)
+        {
+            if (data.id == id)
+            {
+                return data;
+            }
+        }
+        return Characters[0];
     }
 }

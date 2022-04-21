@@ -12,4 +12,49 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 54ff271b13725ef439f33d26e6e81c28, type: 3}
   m_Name: CharacterDictionary
   m_EditorClassIdentifier: 
-  baseIcon: {fileID: 0}
+  Characters:
+  - id: 0
+    prefab: {fileID: 2380918177181631430, guid: 71c7f39d055ada24096c7664328e2a78, type: 3}
+    textureIcon: {fileID: 8400000, guid: 9a847a55465e74646b823656fade546b, type: 2}
+  - id: 1
+    prefab: {fileID: 2380918177181631430, guid: e65ba9fbe9bdc3a4fba400505031bd97, type: 3}
+    textureIcon: {fileID: 8400000, guid: 2108f9b90e33e6e4790f5d37a269165e, type: 2}
+  - id: 2
+    prefab: {fileID: 2380918177181631430, guid: 23a32007b4d506c4fb899739cbbcd8df, type: 3}
+    textureIcon: {fileID: 8400000, guid: 5467ab6ec9ded4043a3c295cffdecbf6, type: 2}
+  - id: 3
+    prefab: {fileID: 2380918177181631430, guid: c91d86be167a51e4b9f8805fa8df9024, type: 3}
+    textureIcon: {fileID: 8400000, guid: 4df8494b14f67e145a162d65c752fb73, type: 2}
+  - id: 4
+    prefab: {fileID: 2380918177181631430, guid: a51d4aba19146da428ad28a95947fb2a, type: 3}
+    textureIcon: {fileID: 8400000, guid: d39cc091af1d1d6429555fac6bc2e6e1, type: 2}
+  - id: 5
+    prefab: {fileID: 2380918177181631430, guid: 383264918ea0bbb44a991461c60ea7d2, type: 3}
+    textureIcon: {fileID: 8400000, guid: fd5cea521b72d744587735bc875aae8d, type: 2}
+  - id: 6
+    prefab: {fileID: 2380918177181631430, guid: d94fd6b6268ab78449bcfd575e125603, type: 3}
+    textureIcon: {fileID: 8400000, guid: 7f96f50d3fce7794a9a2bb9909ee48b6, type: 2}
+  - id: 7
+    prefab: {fileID: 2380918177181631430, guid: 6f2bc9ff1095efb44abc0bccfe5751d0, type: 3}
+    textureIcon: {fileID: 8400000, guid: 71da6bc3fde385b44bee32d3dca29f62, type: 2}
+  - id: 8
+    prefab: {fileID: 2380918177181631430, guid: c4bdff2cb41a88249a97cf123aa50926, type: 3}
+    textureIcon: {fileID: 8400000, guid: 0d6f9c3b3b7dcc145bf41d1c36e3c9b4, type: 2}
+  - id: 9
+    prefab: {fileID: 2380918177181631430, guid: 24f31d4c216f8b746b58bb39fde3386c, type: 3}
+    textureIcon: {fileID: 8400000, guid: 88b58170cb2f1cf4cbea614457cbf59d, type: 2}
+  - id: 10
+    prefab: {fileID: 2380918177181631430, guid: 0ad6805552dd9594bb860e952e86a746, type: 3}
+    textureIcon: {fileID: 8400000, guid: 49ff7f83345c242458189957b2e551d0, type: 2}
+  - id: 11
+    prefab: {fileID: 2380918177181631430, guid: ff65ee1911d9ab0468a0ae7a1a3d00b1, type: 3}
+    textureIcon: {fileID: 8400000, guid: 78d175d7e3f994c44b6524e58b33a9b6, type: 2}
+  - id: 12
+    prefab: {fileID: 2380918177181631430, guid: f98b37acba608a042b696a9dff2b6801, type: 3}
+    textureIcon: {fileID: 8400000, guid: e811c03f315337841a971b61274ff333, type: 2}
+  - id: 13
+    prefab: {fileID: 2380918177181631430, guid: 9005355b6b66df449b652d000691c6a4, type: 3}
+    textureIcon: {fileID: 8400000, guid: 975cb3d76c4168f4fbfd5be6e2b4bacb, type: 2}
+  - id: 14
+    prefab: {fileID: 2380918177181631430, guid: 3615086b226f0ea4da4486bb1c8fa3e1, type: 3}
+    textureIcon: {fileID: 8400000, guid: 01c667c27eedac54abb8c5e4e0cefb83, type: 2}
