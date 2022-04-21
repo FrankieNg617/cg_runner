@@ -38,6 +38,7 @@ public class GameManage : MonoBehaviourPunCallbacks
 
     private void Awake()
     {
+        GameObject.FindGameObjectWithTag("WelcomeBGM").GetComponent<AudioSource>().Stop();
         audioManage = FindObjectOfType<AudioManage>();
         numberOfCoins = 0;
         highScore.text = PlayerPrefs.GetInt("HighScore", 0).ToString();

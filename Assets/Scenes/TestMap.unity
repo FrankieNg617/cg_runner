@@ -818,6 +818,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -5930685935657559224, guid: c13294a688a28da4995395b6a5e168dd, type: 3}
+      propertyPath: sceneViewId
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 6246794723734617171, guid: c13294a688a28da4995395b6a5e168dd, type: 3}
       propertyPath: acceleration
       value: 30
