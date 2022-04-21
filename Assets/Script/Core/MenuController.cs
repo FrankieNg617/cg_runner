@@ -116,7 +116,6 @@ public class MenuController : MonoBehaviourPunCallbacks
         for (int i = 0; i < PhotonNetwork.PlayerList.Length; i++)
         {
             Player player = PhotonNetwork.PlayerList[i];
-
             if (player.CustomProperties.ContainsKey("characterID") && player.IsLocal)
             {
                 object[] argv = { player.ActorNumber - 1, player.NickName };

@@ -10,7 +10,7 @@ public class LobbyCharacterUi : MonoBehaviour
 {
     [SerializeField] CharaterScriptable characterDictionary;
 
-    [SerializeField] GameObject previewCharacterParent;
+    [SerializeField] Transform spawnPoint;
 
     [SerializeField] TextMeshProUGUI nameField;
 
@@ -31,7 +31,7 @@ public class LobbyCharacterUi : MonoBehaviour
     {
         if (curCharacter != null) PhotonNetwork.Destroy(curCharacter);
         var characterData = characterDictionary.GetCharacterPrefabByID(id);
-        curCharacter = PhotonNetwork.Instantiate(characterData.prefab.name, previewCharacterParent.transform.position, Quaternion.Euler(0, 180, 0));
-        curCharacter.transform.parent = previewCharacterParent.transform;
+
+        curCharacter = PhotonNetwork.Instantiate(characterData.prefab.name, spawnPoint.position, Quaternion.Euler(0, 180, 0));
     }
 }
