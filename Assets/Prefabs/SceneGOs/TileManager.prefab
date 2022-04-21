@@ -28,6 +28,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -45,12 +46,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tilePrefabs:
-  - {fileID: 1821634929486944408, guid: 04ee7efd605079f4ca5e197130802cde, type: 3}
-  - {fileID: 1668819678258779105, guid: 9d87ffeeb96012d4996a8893028dcbf5, type: 3}
-  - {fileID: 6664043351688291913, guid: 5b74e1d040460204d8a22933a15bafce, type: 3}
-  - {fileID: 6664043351688291913, guid: 5b74e1d040460204d8a22933a15bafce, type: 3}
-  - {fileID: 6664043351688291913, guid: 5b74e1d040460204d8a22933a15bafce, type: 3}
-  - {fileID: 6664043351688291913, guid: 5b74e1d040460204d8a22933a15bafce, type: 3}
+  - {fileID: 1324342443831375865, guid: 04ee7efd605079f4ca5e197130802cde, type: 3}
+  - {fileID: 1324342443831375865, guid: 04ee7efd605079f4ca5e197130802cde, type: 3}
+  - {fileID: 2021671589417991296, guid: 9d87ffeeb96012d4996a8893028dcbf5, type: 3}
+  - {fileID: 2021671589417991296, guid: 9d87ffeeb96012d4996a8893028dcbf5, type: 3}
+  - {fileID: 2021671589417991296, guid: 9d87ffeeb96012d4996a8893028dcbf5, type: 3}
+  - {fileID: 6295413392901851432, guid: 5b74e1d040460204d8a22933a15bafce, type: 3}
   spawnPos: 0
   numberOfTiles: 6
   character: {fileID: 0}
