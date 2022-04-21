@@ -18,7 +18,9 @@ public class CharacterSelectController : MonoBehaviour
 
     //  STATE
     GameObject curPreviewCharacter;
-    string curPreviewCharacterID;
+
+    [HideInInspector]
+    public string curPreviewCharacterID;
 
     private void Start()
     {
@@ -41,6 +43,7 @@ public class CharacterSelectController : MonoBehaviour
         var characterData = characterDictionary.GetCharacterPrefabByID(id);
         curPreviewCharacter = Instantiate(characterData.prefab, previewCharacterParent.transform.position, Quaternion.Euler(0, 180, 0), previewCharacterParent.transform);
         curPreviewCharacter.GetComponentInChildren<Animator>().SetTrigger("Display");
+        curPreviewCharacterID = id;
         nameField.text = characterData.prefab.name;
     }
 }

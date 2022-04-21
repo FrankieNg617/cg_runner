@@ -7,6 +7,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -5930685935657559224, guid: c13294a688a28da4995395b6a5e168dd, type: 3}
+      propertyPath: ObservedComponents.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: -5930685935657559224, guid: c13294a688a28da4995395b6a5e168dd, type: 3}
+      propertyPath: ObservedComponents.Array.data[0]
+      value: 
+      objectReference: {fileID: 3375971129983596487}
+    - target: {fileID: -5930685935657559224, guid: c13294a688a28da4995395b6a5e168dd, type: 3}
+      propertyPath: ObservedComponents.Array.data[1]
+      value: 
+      objectReference: {fileID: 6729203501281526467}
     - target: {fileID: 6246794723734617192, guid: c13294a688a28da4995395b6a5e168dd, type: 3}
       propertyPath: m_Name
       value: NetworkCharacter

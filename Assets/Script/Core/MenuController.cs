@@ -5,17 +5,19 @@ using UnityEngine.UI;
 using Photon.Pun;
 using Photon.Realtime;
 using TMPro;
+using ExitGames.Client.Photon;
 
 public class MenuController : MonoBehaviourPunCallbacks
 {
     //  REF
     [SerializeField] Button createRoomBtn;
-
     [SerializeField] Button joinRoomBtn;
     [SerializeField] Button startGameBtn;
     [SerializeField] GameObject mainScreen;
+    [SerializeField] GameObject selectCharacterScreen;
     [SerializeField] GameObject lobbyScreen;
 
+    [SerializeField] CharacterSelectController selectController;
 
     private void Start()
     {
@@ -37,7 +39,7 @@ public class MenuController : MonoBehaviourPunCallbacks
     public override void OnJoinedRoom()
     {
         base.OnJoinedRoom();
-        ChangeScreen(lobbyScreen);
+        ChangeScreen(selectCharacterScreen);
         if (!PhotonNetwork.IsMasterClient)
             startGameBtn.gameObject.SetActive(false);
 
@@ -58,6 +60,25 @@ public class MenuController : MonoBehaviourPunCallbacks
     public void JoinRoom(TMP_InputField inputField)
     {
         NetworkManager.instance.JoinRoom(inputField.text);
+    }
+
+    public void SelectCharacter()
+    {
+        ChangeScreen(lobbyScreen);
+
+        foreach (var player in PhotonNetwork.PlayerList)
+        {
+            if (player.IsLocal)
+            {
+                if (!player.CustomProperties.ContainsKey("characterID"))
+                {
+                    player.CustomProperties.Add("characterID", selectController.curPreviewCharacterID);
+                }
+                player.CustomProperties["characterID"] = selectController.curPreviewCharacterID;
+            }
+        }
+
+        this.photonView.RPC("UpdateLobby", RpcTarget.All);
     }
 
     public void LeaveRoom()
@@ -81,6 +102,7 @@ public class MenuController : MonoBehaviourPunCallbacks
     public void ChangeScreen(GameObject screen)
     {
         mainScreen.SetActive(false);
+        selectCharacterScreen.SetActive(false);
         lobbyScreen.SetActive(false);
 
         screen.SetActive(true);
@@ -91,9 +113,19 @@ public class MenuController : MonoBehaviourPunCallbacks
     {
         LobbyUI lobby = lobbyScreen.GetComponent<LobbyUI>();
         lobby.Init();
-        foreach (var player in PhotonNetwork.PlayerList)
+        for (int i = 0; i < PhotonNetwork.PlayerList.Length; i++)
         {
-            lobby.AddPlayer(player.NickName);
+            Player player = PhotonNetwork.PlayerList[i];
+
+            if (player.CustomProperties.ContainsKey("characterID") && player.IsLocal)
+            {
+                object[] argv = { player.ActorNumber - 1, player.NickName };
+                lobby.photonView.RPC("AddPlayer", RpcTarget.AllBuffered, argv);
+
+
+                lobby.SetCharacter(i, (string)player.CustomProperties["characterID"]);
+                return;
+            }
         }
     }
 }
