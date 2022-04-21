@@ -1740,9 +1740,13 @@ PrefabInstance:
       value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 2898590762294724946, guid: bf577246106ba754ba21c339d1aa7270, type: 3}
-      propertyPath: tilePrefabs.Array.data[6]
+      propertyPath: tilePrefabs.Array.data[4]
       value: 
       objectReference: {fileID: 6295413392901851432, guid: 44022b20bdcd92344a410b182eaedbc8, type: 3}
+    - target: {fileID: 2898590762294724946, guid: bf577246106ba754ba21c339d1aa7270, type: 3}
+      propertyPath: tilePrefabs.Array.data[6]
+      value: 
+      objectReference: {fileID: 6295413392901851432, guid: 7f5f44e812d7f1742b094a24a15bd423, type: 3}
     - target: {fileID: 2898590762294724947, guid: bf577246106ba754ba21c339d1aa7270, type: 3}
       propertyPath: m_Name
       value: TileManager
