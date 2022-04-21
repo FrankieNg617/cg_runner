@@ -19,7 +19,7 @@ public class CharacterControl : MonoBehaviour
     //  CONFIG PARAMS
     [SerializeField] float forwardSpeed;
     [SerializeField] float horizontalSpeed;
-    [SerializeField] float acceleration = 100;
+    [SerializeField] float acceleration;
     [SerializeField] float laneDistance = 4; //distance between two lane
 
     [SerializeField] float jumpForce;
@@ -73,7 +73,7 @@ public class CharacterControl : MonoBehaviour
 
 
         if (direction.z < forwardSpeed)
-            direction.z += acceleration * Time.deltaTime;  //increase the character's speed by 0.1 each sec
+            direction.z += acceleration * Time.deltaTime;  //increase the character's speed each sec
 
 
         HandleJump();
