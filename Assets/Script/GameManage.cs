@@ -86,6 +86,7 @@ public class GameManage : MonoBehaviourPunCallbacks
 
     public void onMagnet()
     {
+        if (coinDetector == null) coinDetector = GameObject.FindWithTag("Player").GetComponent<CharacterControl>().coinDetector;
         coinDetector.SetActive(true);
         StartCoroutine(magnetTimer(magnetDuration));
     }
@@ -110,7 +111,8 @@ public class GameManage : MonoBehaviourPunCallbacks
 
     public void showFloatingText()
     {
-        Vector3 floatingTextPos = new Vector3(player.transform.position.x+1, player.transform.position.y+5, player.transform.position.z);
+        if (player == null) player = GameObject.FindWithTag("Player");
+        Vector3 floatingTextPos = new Vector3(player.transform.position.x + 1, player.transform.position.y + 5, player.transform.position.z);
         Instantiate(floatingTextPrefab, floatingTextPos, Quaternion.identity);
     }
 

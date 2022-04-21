@@ -13,6 +13,7 @@ public class CharacterControl : MonoBehaviour
     private PlayerInputAction.GameplayActions gameplay;
     private GameManage gameManager;
     [SerializeField] Animator anim;
+    [SerializeField] public GameObject coinDetector;
 
 
     //  CONFIG PARAMS
