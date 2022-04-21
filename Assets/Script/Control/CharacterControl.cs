@@ -42,8 +42,8 @@ public class CharacterControl : MonoBehaviour
     void Awake()
     {
         controller = GetComponent<CharacterController>();
-        if (gameManager == null) return;
         gameManager = GameObject.FindWithTag("GameManage")?.GetComponent<GameManage>();
+        if (gameManager == null) return;
         gameManager.onGameStart += enableControl;
         gameManager.onGameOver += () => enableMovement = false;
 
@@ -87,7 +87,7 @@ public class CharacterControl : MonoBehaviour
 
         if (desiredLane != 0)
             targetPos += desiredLane * Vector3.right * laneDistance;
-            
+
 
         if (Mathf.Abs(transform.position.x - targetPos.x) > 0.1f)
         {
