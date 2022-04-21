@@ -18,6 +18,9 @@ public class CharacterControl : MonoBehaviour
 
     //  CONFIG PARAMS
     [SerializeField] float forwardSpeed;
+    [SerializeField] float maxAcceleration = 1;
+    [SerializeField] float maxSpeedCap;
+
     [SerializeField] float horizontalSpeed;
     [SerializeField] float acceleration;
     [SerializeField] float laneDistance = 4; //distance between two lane
@@ -76,12 +79,15 @@ public class CharacterControl : MonoBehaviour
         if (direction.z < forwardSpeed)
             direction.z += acceleration * Time.deltaTime;  //increase the character's speed each sec
 
+        if (forwardSpeed < maxSpeedCap)
+            forwardSpeed += maxAcceleration * Time.deltaTime;
 
         HandleJump();
 
         HandleLaneMovement();
         controller.Move(direction * Time.deltaTime);
     }
+
 
     private void HandleLaneMovement()
     {
