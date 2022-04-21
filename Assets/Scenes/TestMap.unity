@@ -1740,6 +1740,22 @@ PrefabInstance:
       value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 2898590762294724946, guid: bf577246106ba754ba21c339d1aa7270, type: 3}
+      propertyPath: tilePrefabs.Array.data[1]
+      value: 
+      objectReference: {fileID: 6295413392901851432, guid: 44022b20bdcd92344a410b182eaedbc8, type: 3}
+    - target: {fileID: 2898590762294724946, guid: bf577246106ba754ba21c339d1aa7270, type: 3}
+      propertyPath: tilePrefabs.Array.data[2]
+      value: 
+      objectReference: {fileID: 6295413392901851432, guid: 5b74e1d040460204d8a22933a15bafce, type: 3}
+    - target: {fileID: 2898590762294724946, guid: bf577246106ba754ba21c339d1aa7270, type: 3}
+      propertyPath: tilePrefabs.Array.data[4]
+      value: 
+      objectReference: {fileID: 2791592408850118327, guid: aa3258cd1cb20514bab5ff7326c4863c, type: 3}
+    - target: {fileID: 2898590762294724946, guid: bf577246106ba754ba21c339d1aa7270, type: 3}
+      propertyPath: tilePrefabs.Array.data[5]
+      value: 
+      objectReference: {fileID: 917918377906622023, guid: 12c9dde7c633f29498a5873e0509eedf, type: 3}
+    - target: {fileID: 2898590762294724946, guid: bf577246106ba754ba21c339d1aa7270, type: 3}
       propertyPath: tilePrefabs.Array.data[6]
       value: 
       objectReference: {fileID: 6295413392901851432, guid: 44022b20bdcd92344a410b182eaedbc8, type: 3}
@@ -1950,12 +1966,16 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 237710979940939093, guid: 3f9f26ee693bd73429412834f49a3cc3, type: 3}
+      propertyPath: character
+      value: 
+      objectReference: {fileID: 1899436706}
+    - target: {fileID: 237710979940939093, guid: 3f9f26ee693bd73429412834f49a3cc3, type: 3}
       propertyPath: numberOfTiles
-      value: 3
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 237710979940939093, guid: 3f9f26ee693bd73429412834f49a3cc3, type: 3}
       propertyPath: tilePrefabs.Array.size
-      value: 4
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 237710979940939093, guid: 3f9f26ee693bd73429412834f49a3cc3, type: 3}
       propertyPath: tilePrefabs.Array.data[0]
@@ -1976,7 +1996,15 @@ PrefabInstance:
     - target: {fileID: 237710979940939093, guid: 3f9f26ee693bd73429412834f49a3cc3, type: 3}
       propertyPath: tilePrefabs.Array.data[4]
       value: 
-      objectReference: {fileID: 6295413392901851432, guid: 5b74e1d040460204d8a22933a15bafce, type: 3}
+      objectReference: {fileID: 1185302637321480402, guid: ee0094b733168ee4586dfce2c54a6d5c, type: 3}
+    - target: {fileID: 237710979940939093, guid: 3f9f26ee693bd73429412834f49a3cc3, type: 3}
+      propertyPath: tilePrefabs.Array.data[5]
+      value: 
+      objectReference: {fileID: 1185302637321480402, guid: ee0094b733168ee4586dfce2c54a6d5c, type: 3}
+    - target: {fileID: 237710979940939093, guid: 3f9f26ee693bd73429412834f49a3cc3, type: 3}
+      propertyPath: tilePrefabs.Array.data[6]
+      value: 
+      objectReference: {fileID: 1185302637321480402, guid: ee0094b733168ee4586dfce2c54a6d5c, type: 3}
     - target: {fileID: 237710979940939094, guid: 3f9f26ee693bd73429412834f49a3cc3, type: 3}
       propertyPath: m_RootOrder
       value: 9
