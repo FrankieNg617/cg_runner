@@ -175,21 +175,25 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2898590762294724946, guid: bf577246106ba754ba21c339d1aa7270, type: 3}
+      propertyPath: character
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 2898590762294724946, guid: bf577246106ba754ba21c339d1aa7270, type: 3}
       propertyPath: tilePrefabs.Array.data[0]
       value: 
       objectReference: {fileID: 1324342443831375865, guid: 04ee7efd605079f4ca5e197130802cde, type: 3}
     - target: {fileID: 2898590762294724946, guid: bf577246106ba754ba21c339d1aa7270, type: 3}
       propertyPath: tilePrefabs.Array.data[1]
       value: 
-      objectReference: {fileID: 1324342443831375865, guid: 04ee7efd605079f4ca5e197130802cde, type: 3}
+      objectReference: {fileID: 6295413392901851432, guid: 44022b20bdcd92344a410b182eaedbc8, type: 3}
     - target: {fileID: 2898590762294724946, guid: bf577246106ba754ba21c339d1aa7270, type: 3}
       propertyPath: tilePrefabs.Array.data[2]
       value: 
-      objectReference: {fileID: 2021671589417991296, guid: 9d87ffeeb96012d4996a8893028dcbf5, type: 3}
+      objectReference: {fileID: 6295413392901851432, guid: 7f5f44e812d7f1742b094a24a15bd423, type: 3}
     - target: {fileID: 2898590762294724946, guid: bf577246106ba754ba21c339d1aa7270, type: 3}
       propertyPath: tilePrefabs.Array.data[3]
       value: 
-      objectReference: {fileID: 2021671589417991296, guid: 9d87ffeeb96012d4996a8893028dcbf5, type: 3}
+      objectReference: {fileID: 6295413392901851432, guid: 5b74e1d040460204d8a22933a15bafce, type: 3}
     - target: {fileID: 2898590762294724946, guid: bf577246106ba754ba21c339d1aa7270, type: 3}
       propertyPath: tilePrefabs.Array.data[4]
       value: 
@@ -197,7 +201,7 @@ PrefabInstance:
     - target: {fileID: 2898590762294724946, guid: bf577246106ba754ba21c339d1aa7270, type: 3}
       propertyPath: tilePrefabs.Array.data[5]
       value: 
-      objectReference: {fileID: 6295413392901851432, guid: 5b74e1d040460204d8a22933a15bafce, type: 3}
+      objectReference: {fileID: 2791592408850118327, guid: aa3258cd1cb20514bab5ff7326c4863c, type: 3}
     - target: {fileID: 2898590762294724947, guid: bf577246106ba754ba21c339d1aa7270, type: 3}
       propertyPath: m_Name
       value: TileManager
