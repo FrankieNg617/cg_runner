@@ -21,7 +21,10 @@ public class LobbyUI : MonoBehaviourPunCallbacks
     [PunRPC]
     public void AddPlayer(int position, string playerName)
     {
-        charactersUI[position].SetName(playerName);
+        if (position <= charactersUI.Count)
+        {
+            charactersUI[position].SetName(playerName);
+        }
         noPlayerField.text = PhotonNetwork.PlayerList.Length + " player!";
     }
 
