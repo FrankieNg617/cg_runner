@@ -1838,6 +1838,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1272198274}
     - target: {fileID: 4922243569384696205, guid: 4d73b4102ff92094a81a15de7858381e, type: 3}
+      propertyPath: coinEffectPrefab
+      value: 
+      objectReference: {fileID: 1657489236599580499, guid: dda8c92cf35dc184fb4e44441aa47b87, type: 3}
+    - target: {fileID: 4922243569384696205, guid: 4d73b4102ff92094a81a15de7858381e, type: 3}
       propertyPath: multipleDuration
       value: 10
       objectReference: {fileID: 0}
@@ -2003,11 +2007,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3029433637870862517, guid: a91973e41ba78a44eaeccc75f3568232, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -0.45337
+      value: -0.45336914
       objectReference: {fileID: 0}
     - target: {fileID: 3029433637870862517, guid: a91973e41ba78a44eaeccc75f3568232, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0.63531
+      value: 0.6352997
       objectReference: {fileID: 0}
     - target: {fileID: 3029433637928786796, guid: a91973e41ba78a44eaeccc75f3568232, type: 3}
       propertyPath: m_IsActive
