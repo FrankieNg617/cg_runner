@@ -32,6 +32,7 @@ public class GameManage : MonoBehaviourPunCallbacks
     public static bool isMagnet = false;
 
     [SerializeField] GameObject floatingTextPrefab;
+    [SerializeField] GameObject coinEffectPrefab;
     [SerializeField] GameObject player;
 
     [SerializeField] Image magnetImg;
@@ -145,6 +146,13 @@ public class GameManage : MonoBehaviourPunCallbacks
         if (player == null) player = GameObject.FindWithTag("Player");
         Vector3 floatingTextPos = new Vector3(player.transform.position.x + 1, player.transform.position.y + 5, player.transform.position.z);
         Instantiate(floatingTextPrefab, floatingTextPos, Quaternion.identity);
+    }
+
+    public void showCoinEffect()
+    {
+        if (player == null) player = GameObject.FindWithTag("Player");
+        Vector3 coinEffectPos = new Vector3(player.transform.position.x, player.transform.position.y + 3, player.transform.position.z+1);
+        Instantiate(coinEffectPrefab, coinEffectPos, Quaternion.identity);
     }
 
     void Update()
