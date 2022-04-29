@@ -1,5 +1,5 @@
 {
-    "m_SGVersion": 2,
+    "m_SGVersion": 3,
     "m_Type": "UnityEditor.ShaderGraph.GraphData",
     "m_ObjectId": "046a57292ff449128434868efbc6df41",
     "m_Properties": [
@@ -11,6 +11,12 @@
         }
     ],
     "m_Keywords": [],
+    "m_Dropdowns": [],
+    "m_CategoryData": [
+        {
+            "m_Id": "75a49dca2b284b389f65c533ab095c0d"
+        }
+    ],
     "m_Nodes": [
         {
             "m_Id": "708467c99a424c02a9dd25bda6ecfa57"
@@ -276,10 +282,11 @@
         "serializedMesh": {
             "m_SerializedMesh": "{\"mesh\":{\"instanceID\":0}}",
             "m_Guid": ""
-        }
+        },
+        "preventRotation": false
     },
     "m_Path": "Sub Graphs",
-    "m_ConcretePrecision": 0,
+    "m_GraphPrecision": 0,
     "m_PreviewMode": 2,
     "m_OutputNode": {
         "m_Id": "708467c99a424c02a9dd25bda6ecfa57"
@@ -656,9 +663,13 @@
         "m_GuidSerialized": "49ee9cae-8e18-459e-8d99-c1eaf7df70a8"
     },
     "m_Name": "CurveX",
+    "m_DefaultRefNameVersion": 0,
+    "m_RefNameGeneratedByDisplayName": "",
     "m_DefaultReferenceName": "Vector1_4d770d46c5354e4f9026fb2b9cafb5e0",
     "m_OverrideReferenceName": "",
     "m_GeneratePropertyBlock": true,
+    "m_UseCustomSlotLabel": false,
+    "m_CustomSlotLabel": "",
     "m_Precision": 0,
     "overrideHLSLDeclaration": false,
     "hlslDeclarationOverride": 0,
@@ -938,6 +949,21 @@
         "z": 0.0,
         "w": 0.0
     }
+}
+
+{
+    "m_SGVersion": 0,
+    "m_Type": "UnityEditor.ShaderGraph.CategoryData",
+    "m_ObjectId": "75a49dca2b284b389f65c533ab095c0d",
+    "m_Name": "",
+    "m_ChildObjectList": [
+        {
+            "m_Id": "4d770d46c5354e4f9026fb2b9cafb5e0"
+        },
+        {
+            "m_Id": "a79be4fc16c747d79508f1ec3b7ee59c"
+        }
+    ]
 }
 
 {
@@ -1339,7 +1365,8 @@
     "m_CustomColors": {
         "m_SerializableColors": []
     },
-    "m_Space": 4
+    "m_Space": 4,
+    "m_PositionSource": 0
 }
 
 {
@@ -1419,9 +1446,13 @@
         "m_GuidSerialized": "8aa6b637-0157-47e5-8d26-ffd081985b6c"
     },
     "m_Name": "CurveY",
+    "m_DefaultRefNameVersion": 0,
+    "m_RefNameGeneratedByDisplayName": "",
     "m_DefaultReferenceName": "Vector1_a79be4fc16c747d79508f1ec3b7ee59c",
     "m_OverrideReferenceName": "",
     "m_GeneratePropertyBlock": true,
+    "m_UseCustomSlotLabel": false,
+    "m_CustomSlotLabel": "",
     "m_Precision": 0,
     "overrideHLSLDeclaration": false,
     "hlslDeclarationOverride": 0,
@@ -1536,7 +1567,8 @@
     "m_CustomColors": {
         "m_SerializableColors": []
     },
-    "m_Space": 0
+    "m_Space": 0,
+    "m_PositionSource": 0
 }
 
 {
